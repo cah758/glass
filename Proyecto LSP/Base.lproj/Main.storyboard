@@ -209,6 +209,34 @@
             </objects>
             <point key="canvasLocation" x="816.79999999999995" y="-90.404797601199405"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="QaC-gT-cCv">
+            <objects>
+                <viewController id="iMp-Nd-tlt" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="go8-Hd-K0j">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kXu-Dd-cee">
+                                <rect key="frame" x="110" y="130" width="155" height="155"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cristal placeholder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D26-Z7-29c">
+                                <rect key="frame" x="115" y="88" width="144" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="dNG-MV-gH6"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xkd-aZ-z7H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1789.5999999999999" y="724.58770614692662"/>
+        </scene>
         <!--Cristales Table View Controller-->
         <scene sceneID="uW4-qV-DKZ">
             <objects>
@@ -241,7 +269,7 @@
                                 <connections>
                                     <outlet property="cristalImg" destination="WfV-d9-Ipq" id="TCp-jH-1A5"/>
                                     <outlet property="cristalLbl" destination="FrW-9T-B39" id="Nla-Bw-aSD"/>
-                                    <segue destination="RQM-75-fyS" kind="show" id="xRt-Ls-71Z"/>
+                                    <segue destination="iMp-Nd-tlt" kind="show" id="kah-1K-k1E"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
