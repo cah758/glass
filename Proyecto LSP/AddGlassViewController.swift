@@ -10,6 +10,13 @@ import UIKit
 
 class AddGlassViewController: UIViewController {
     
+    
+    @IBOutlet weak var sliderIndRef: UISlider!
+    
+    @IBOutlet weak var tipoCristalPicker: TipoCristalPickerView!
+    
+    
+    
     var hola:String = "Prueba 01"
     override func viewDidLoad() {
         super.viewDidLoad()
