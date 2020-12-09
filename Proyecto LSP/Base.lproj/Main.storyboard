@@ -198,7 +198,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sr2-Hc-A3V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1570.4000000000001" y="766.86656671664173"/>
+            <point key="canvasLocation" x="-1570" y="791"/>
         </scene>
         <!--Casos Table View Controller-->
         <scene sceneID="zX8-MV-N6K">
@@ -251,7 +251,11 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="SwJ-7L-NPQ">
                         <barButtonItem key="leftBarButtonItem" title="Cerrar sesión" id="A4R-en-AK6"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="6YV-5D-1un"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="6YV-5D-1un">
+                            <connections>
+                                <action selector="addCase:" destination="UGw-q0-9tO" id="LdV-MP-Qr8"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="60d-76-Xue" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -556,6 +560,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logoCriminologyInstitute" width="1200" height="452"/>
+        <image name="logoCriminologyInstitute" width="600" height="226"/>
     </resources>
 </document>

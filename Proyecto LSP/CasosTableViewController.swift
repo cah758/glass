@@ -48,6 +48,30 @@ class CasosTableViewController: UITableViewController {
         return 0
     }
 
+    
+    @IBAction func addCase(_ sender: Any) {
+        
+        let alert = UIAlertController(title:"Nuevo caso", message: "Añade un nuevo caso", preferredStyle: .alert)
+        let guardar = UIAlertAction(title:"Guardar", style: .default){
+            [unowned self] action in
+            guard let textField = alert.textFields?.first,
+                let caseName = textField.text else{
+                    return
+            }
+            //Aqui se hace lo de guardar en la BBDD creo
+            print(caseName)
+            self.tableView.reloadData()
+        }
+        
+        let cancelar = UIAlertAction(title:"Cancelar", style: .cancel)
+        alert.addTextField()
+        alert.addAction(guardar)
+        alert.addAction(cancelar)
+        
+        
+        
+    }
+    
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
