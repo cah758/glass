@@ -21,7 +21,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="agy-JT-Nlr">
                                 <rect key="frame" x="73" y="233" width="228" height="168"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Usuario" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2gf-nf-FDg">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2gf-nf-FDg">
                                         <rect key="frame" x="0.0" y="0.0" width="228" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -41,6 +41,7 @@
                                             <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <connections>
+                                            <action selector="iniciarSesion:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Cw1-fn-d5i"/>
                                             <segue destination="R5J-V6-a75" kind="show" id="PTu-C5-8Qt"/>
                                         </connections>
                                     </button>
@@ -90,8 +91,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="email" destination="2gf-nf-FDg" id="2jk-vY-E1j"/>
                         <outlet property="iniciarSesionBtn" destination="Jce-kH-RfJ" id="PZq-b7-KFV"/>
-                        <outlet property="nombreUsuario" destination="2gf-nf-FDg" id="faG-rQ-nmW"/>
                         <outlet property="passwordUsuario" destination="ie4-8X-gGC" id="JNn-2d-vkD"/>
                         <outlet property="recordarPassBtn" destination="7vY-h8-IPW" id="d67-Z9-xpT"/>
                         <outlet property="registroBtn" destination="n5k-Wz-gd6" id="Rdz-Ga-U0v"/>
@@ -186,7 +187,6 @@
                         <outlet property="cancelarBtn" destination="gVN-7j-UOA" id="DEQ-ID-HQe"/>
                         <outlet property="confirmarPWTF" destination="BrJ-3S-ruK" id="Nla-vi-rlv"/>
                         <outlet property="emailTF" destination="V0j-MY-2OG" id="tVE-dI-7RN"/>
-                        <outlet property="nombreUsuario" destination="e8L-wA-p0Z" id="jtK-bs-kHk"/>
                         <outlet property="nombreUsuarioTF" destination="e8L-wA-p0Z" id="SfR-nh-gym"/>
                         <outlet property="numColegiadoTF" destination="Bli-ZX-8Nl" id="Lgt-5H-etG"/>
                         <outlet property="passwordTF" destination="aFC-J0-lQw" id="ina-64-DZU"/>
