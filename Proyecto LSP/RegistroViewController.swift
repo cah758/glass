@@ -29,6 +29,8 @@ class RegistroViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let name = UserDefaults.standard.string(forKey: "token") ?? ""
+        print(name)
 
         // Do any additional setup after loading the view.
     }

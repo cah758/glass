@@ -153,6 +153,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gVN-7j-UOA">
                                 <rect key="frame" x="86" y="505" width="61" height="30"/>
                                 <state key="normal" title="Cancelar"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="Cuc-v8-fdE"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -553,6 +556,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logoCriminologyInstitute" width="600" height="226"/>
+        <image name="logoCriminologyInstitute" width="1200" height="452"/>
     </resources>
 </document>

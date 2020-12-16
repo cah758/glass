@@ -9,12 +9,19 @@
 import UIKit
 
 
+
 class InicioViewController: UIViewController {
 
     struct user:Codable{
         let email:String
-        let pass:String
+        let password:String
     }
+    struct loginData:Codable{
+        let access_token: String
+        let token_type:  String
+        let expires_at:  String
+    }
+
     
     @IBOutlet weak var email: UITextField!
     
@@ -31,20 +38,23 @@ class InicioViewController: UIViewController {
     
     @IBAction func iniciarSesion(_ sender: Any) {
         
-        let url = URL(string:"http://lps.tabalu.es/API/auth/login")
+        let url = URL(string:"https://lps.tabalu.es/api/auth/login")
         
-        let uploadDataModel = user(email:email.text as String!, pass:passwordUsuario.text as String!)
+        let uploadDataModel = user(email:email.text as String!, password:passwordUsuario.text as String!)
         
         guard let jsonData = try? JSONEncoder().encode(uploadDataModel) else{
             print("iofeiofeiojefwj")
             return
         }
-        
-        var request = URLRequest(url:url!)
+       
+        var request  = URLRequest(url:url!)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField:"Content-Type")
+        //request.setValue("XMLHttpRequest", forHTTPHeaderField:"X-Requested-With")
         request.setValue("application/json", forHTTPHeaderField:"Accept")
         request.httpBody = jsonData
+        
+        print(uploadDataModel.password)
         request.httpMethod = "POST"
         let dataTask = URLSession.shared.dataTask(with:request){
             data,_,error in
@@ -52,9 +62,19 @@ class InicioViewController: UIViewController {
                 print(error);return
             }
             do{
+                //print(String(data: data!, encoding: .utf8))
+                let token = try JSONDecoder().decode(loginData.self, from: data!).access_token
+                
+                UserDefaults.standard.set(token, forKey: "token")
+
+
                 DispatchQueue.main.async {
-                    //AQUI VA EL SEGUE
+                    
                 }
+                
+            }
+            catch {
+                print("esto peta por todos sitios")
             }
         }
         dataTask.resume()
