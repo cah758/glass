@@ -10,21 +10,23 @@ import UIKit
 
 class CasosTableViewController: UITableViewController {
 
-    
+    struct newCase:Codable{
+        let nombre:String
+    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let url = URL(string:"https://lps.tabalu.es/api/auth/projects")
+        guard let jsonData = try? JSONEncoder().encode(<#T##value: Encodable##Encodable#>)
         
-        
-        //Aqui cargamos casos desde la BBDD
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        var request = URLRequest(url:url!)
+        request.httpMethod = "GET"
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.httpBody = jsonData
     }
 
     // MARK: - Table view data source
@@ -51,7 +53,44 @@ class CasosTableViewController: UITableViewController {
             }
             //Aqui se hace lo de guardar en la BBDD creo
             
+            let url = URL(string:"https://lps.tabalu.es/api/auth/projects")
             
+            let uploadDataModel = newCase(nombre: caseName)
+            
+            struct createdCase:Codable{
+                
+            }
+            
+            guard let jsonData = try? JSONEncoder().encode(uploadDataModel) else{
+                print("Error creando el caso")
+                return
+            }
+            
+            var request = URLRequest(url:url!)
+            request.httpMethod = "POST"
+            request.setValue("application/json",forHTTPHeaderField: "Content-Type")
+            request.setValue("application/json",forHTTPHeaderField: "Accept")
+            request.httpBody = jsonData
+            
+            let dataTask = URLSession.shared.dataTask(with: request){
+                data,response,error in
+                if let error = error{
+                    print(error);return
+                }
+                let httpResponse = response as? HTTPURLResponse
+                if(httpResponse!.statusCode != 201){
+                    DispatchQueue.main.async {
+                        let alert = UIAlertController(title:"Error",message:"Ha habido un error.", preferredStyle:.alert)
+                        let okAction = UIAlertAction(title:"Ok", style: .cancel)
+                        
+                        alert.addAction(okAction)
+                        self.present(alert,animated:true)
+                    }
+                    
+                }
+                
+            }
+            dataTask.resume()
             
             print(caseName)
             self.tableView.reloadData()
@@ -68,6 +107,9 @@ class CasosTableViewController: UITableViewController {
     }
     
     @IBAction func cerrarSesion(_ sender: Any) {
+        
+        
+        
         performSegue(withIdentifier: "cerrarSesion", sender: self)
         
     }
