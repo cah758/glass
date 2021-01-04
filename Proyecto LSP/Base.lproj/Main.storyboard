@@ -42,7 +42,7 @@
                                         </state>
                                         <connections>
                                             <action selector="iniciarSesion:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Cw1-fn-d5i"/>
-                                            <segue destination="R5J-V6-a75" kind="show" id="PTu-C5-8Qt"/>
+                                            <segue destination="R5J-V6-a75" kind="show" identifier="unwindToInicio" id="PTu-C5-8Qt"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="yY3-0f-fRj">
@@ -149,6 +149,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pI5-aS-i0p">
                                 <rect key="frame" x="213" y="505" width="78" height="30"/>
                                 <state key="normal" title="Registrarse"/>
+                                <connections>
+                                    <action selector="registrarse:" destination="HPa-Nb-u63" eventType="touchUpInside" id="fcy-d8-LTK"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gVN-7j-UOA">
                                 <rect key="frame" x="86" y="505" width="61" height="30"/>
@@ -250,15 +253,23 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="SwJ-7L-NPQ">
-                        <barButtonItem key="leftBarButtonItem" title="Cerrar sesión" id="A4R-en-AK6"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cerrar sesión" id="A4R-en-AK6">
+                            <connections>
+                                <action selector="cerrarSesion:" destination="UGw-q0-9tO" id="G7l-cC-S2V"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="6YV-5D-1un">
                             <connections>
                                 <action selector="addCase:" destination="UGw-q0-9tO" id="LdV-MP-Qr8"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="H6a-ea-G4y" kind="unwind" identifier="cerrarSesion" unwindAction="unwind:" id="HAK-OZ-yG3"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="60d-76-Xue" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="H6a-ea-G4y" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="816.79999999999995" y="-90.404797601199405"/>
         </scene>
@@ -556,7 +567,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K4x-yM-6TY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-354" y="-90"/>
+            <point key="canvasLocation" x="-335" y="-90"/>
         </scene>
     </scenes>
     <resources>

@@ -65,13 +65,18 @@ class CasosTableViewController: UITableViewController {
         
         let cancelar = UIAlertAction(title:"Cancelar", style: .cancel)
         alert.addTextField()
+        
         alert.addAction(guardar)
         alert.addAction(cancelar)
         
-        
+        present(alert, animated:true)
         
     }
     
+    @IBAction func cerrarSesion(_ sender: Any) {
+        performSegue(withIdentifier: "cerrarSesion", sender: self)
+        
+    }
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
