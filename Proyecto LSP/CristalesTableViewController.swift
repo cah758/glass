@@ -10,6 +10,20 @@ import UIKit
 
 class CristalesTableViewController: UITableViewController {
 
+    struct cristal:Codable{
+        let id:Int
+        let al:Double
+        let na:Double
+        let mg:Double
+        let ba:Double
+        let iR:Double
+    }
+    
+    struct caso:Codable{
+        let id:Int
+        let nombreCaso:String
+        let cristales:[cristal]
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
