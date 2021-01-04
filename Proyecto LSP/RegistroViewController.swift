@@ -14,9 +14,8 @@ class RegistroViewController: UIViewController {
     
         let email:String
         let password:String
-        let confPassword:String
-        let username:String
-        let nColegiado:String
+        let name:String
+        let collegiate:String
         
     }
 
@@ -49,22 +48,20 @@ class RegistroViewController: UIViewController {
         
         let url = URL(string:"https://lps.tabalu.es/api/auth/signup")
         
-        let uploadDataModel = newUser(email:emailTF.text as String!, password:passwordTF.text as String!, confPassword:confirmarPWTF.text as String!, username:nombreUsuarioTF.text as String!,nColegiado:numColegiadoTF.text as String!)
+        let uploadDataModel = newUser(email:emailTF.text as String!, password:passwordTF.text as String!, name:nombreUsuarioTF.text as String!,collegiate:numColegiadoTF.text as String!)
         
         struct signupData:Codable{
-            let access_token: String
-            let token_type:  String
-            let expires_at:  String
+            let message:String
         }
         
-        if(uploadDataModel.password != uploadDataModel.confPassword){
+        if(uploadDataModel.password != confirmarPWTF.text){
             let alert = UIAlertController(title:"Error", message:"Las contraseñas deben coincidir", preferredStyle: .alert)
             let okAction = UIAlertAction(title:"Ok", style:.default)
             alert.addAction(okAction)
             present(alert,animated:true)
         }else{
             guard let jsonData = try? JSONEncoder().encode(uploadDataModel) else{
-                print("iofeiofeiojefwj")
+                print("nnioagiongaweriongewion")
                 return
             }
         
@@ -76,32 +73,37 @@ class RegistroViewController: UIViewController {
             request.httpBody = jsonData
             
             print(uploadDataModel.password)
-            request.httpMethod = "POST"
+            
             let dataTask = URLSession.shared.dataTask(with:request){
-                data,_,error in
+                data,response,error in
                 if let error = error{
                     print(error);return
                 }
-                do{
-                    //print(String(data: data!, encoding: .utf8))
-                    let token = try JSONDecoder().decode(signupData.self, from: data!).access_token
-                    
-                    UserDefaults.standard.set(token, forKey: "token")
-                    
-                    
+                
+                let httpResponse = response as? HTTPURLResponse
+                
+                if(httpResponse!.statusCode == 201){
                     DispatchQueue.main.async {
                         
+                    
+                    let alert = UIAlertController(title:"Usuario creado correctamente",message:"", preferredStyle:.alert)
+                        let okAction = UIAlertAction(title:"Ok", style: .destructive){
+                            alertAction in
+                            self.performSegue(withIdentifier: "registrado", sender: self)
+                        }
+                    alert.addAction(okAction)
+                    self.present(alert,animated:true)
                     }
                     
+                }else{
+                    print("Moricion")
+                    return
                 }
-                catch {
-                    print("esto peta por todos sitios")
-                }
+                
             }
             dataTask.resume()
         }
     }
-    
     
     /*
     // MARK: - Navigation

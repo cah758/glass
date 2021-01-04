@@ -197,9 +197,11 @@
                         <outlet property="numColegiadoTF" destination="Bli-ZX-8Nl" id="Lgt-5H-etG"/>
                         <outlet property="passwordTF" destination="aFC-J0-lQw" id="ina-64-DZU"/>
                         <outlet property="registrarseBtn" destination="pI5-aS-i0p" id="meV-Wx-DLD"/>
+                        <segue destination="ifw-YP-SJd" kind="unwind" identifier="registrado" unwindAction="unwind:" id="o3Z-cR-NYc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sr2-Hc-A3V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="ifw-YP-SJd" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-1570" y="791"/>
         </scene>
