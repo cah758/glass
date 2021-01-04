@@ -19,7 +19,7 @@ class CristalesTableViewController: UITableViewController {
         let iR:Double
     }
     
-    let nombre:String = ""
+    var nombre:String = ""
     
     struct caso:Codable{
         let id:Int
@@ -29,6 +29,7 @@ class CristalesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.title = nombre
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 

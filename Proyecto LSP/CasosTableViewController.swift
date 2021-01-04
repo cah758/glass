@@ -29,7 +29,7 @@ class CasosTableViewController: UITableViewController {
            
         }
         
-        print(casos)
+        
         /*let url = URL(string:"https://lps.tabalu.es/api/auth/projects")
         guard let jsonData = try? JSONEncoder().encode(<#T##value: Encodable##Encodable#>)
         
@@ -133,11 +133,9 @@ class CasosTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CasoTableViewCell", for: indexPath) as! CasoTableViewCell
         cell.nombreCasoLbl.text = casos[indexPath.row].nombre
         
-        print("HOLA")
-        //Aqui comprobar el estado y asignarle una imagen que habra que meter en la galeria
-        
-        //cell.estadoCasoImg
-
+        if(casos[indexPath.row].estado){
+            cell.estadoCasoImg.image = UIImage(named:"check")
+        }
     
         return cell
     }
@@ -190,14 +188,18 @@ class CasosTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        let selectedRow = tableView.indexPath(for: sender as! CasoTableViewCell)?.row
+        let viewDestiny = segue.destination as! CristalesTableViewController
+        viewDestiny.nombre = casos[selectedRow!].nombre
+        
     }
-    */
+    
 
 }
