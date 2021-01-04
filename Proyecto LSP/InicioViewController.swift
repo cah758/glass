@@ -43,7 +43,7 @@ class InicioViewController: UIViewController {
         let uploadDataModel = user(email:email.text as String!, password:passwordUsuario.text as String!)
         
         guard let jsonData = try? JSONEncoder().encode(uploadDataModel) else{
-            print("iofeiofeiojefwj")
+            print("Error al codificar")
             return
         }
        
@@ -74,7 +74,7 @@ class InicioViewController: UIViewController {
                 
             }
             catch {
-                print("esto peta por todos sitios")
+                print("Error al iniciar sesion")
             }
         }
         dataTask.resume()

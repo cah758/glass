@@ -19,6 +19,8 @@ class CristalesTableViewController: UITableViewController {
         let iR:Double
     }
     
+    let nombre:String = ""
+    
     struct caso:Codable{
         let id:Int
         let nombreCaso:String

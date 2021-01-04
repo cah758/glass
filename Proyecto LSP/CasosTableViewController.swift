@@ -9,16 +9,28 @@
 import UIKit
 
 class CasosTableViewController: UITableViewController {
-
+    
     struct newCase:Codable{
         let nombre:String
+        let estado:Bool
+        let usuario:String
     }
     
+    //Array para cargar los casos/proyectos. Esta puesto String temporalmente
+    var casos:[newCase] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let url = URL(string:"https://lps.tabalu.es/api/auth/projects")
+        
+        for i in 1...5{
+            
+            let n = newCase(nombre:"Pepe\(i)", estado:false, usuario:"1")
+            casos.append(n)
+           
+        }
+        
+        print(casos)
+        /*let url = URL(string:"https://lps.tabalu.es/api/auth/projects")
         guard let jsonData = try? JSONEncoder().encode(<#T##value: Encodable##Encodable#>)
         
         var request = URLRequest(url:url!)
@@ -26,19 +38,19 @@ class CasosTableViewController: UITableViewController {
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("application/json", forHTTPHeaderField: "Accept")
-        request.httpBody = jsonData
+        request.httpBody = jsonData*/
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return casos.count
     }
 
     
@@ -51,9 +63,12 @@ class CasosTableViewController: UITableViewController {
                 let caseName = textField.text else{
                     return
             }
+            
+            let n = newCase(nombre:caseName, estado:false, usuario:"1")
+            self.casos.append(n)
             //Aqui se hace lo de guardar en la BBDD creo
             
-            let url = URL(string:"https://lps.tabalu.es/api/auth/projects")
+           /* let url = URL(string:"https://lps.tabalu.es/api/auth/projects")
             
             let uploadDataModel = newCase(nombre: caseName)
             
@@ -91,8 +106,8 @@ class CasosTableViewController: UITableViewController {
                 
             }
             dataTask.resume()
-            
-            print(caseName)
+            */
+            //print(caseName)
             self.tableView.reloadData()
         }
         
@@ -108,40 +123,57 @@ class CasosTableViewController: UITableViewController {
     
     @IBAction func cerrarSesion(_ sender: Any) {
         
-        
+        //Aqui hay que cerrar la sesion de la API
         
         performSegue(withIdentifier: "cerrarSesion", sender: self)
         
     }
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CasoTableViewCell", for: indexPath) as! CasoTableViewCell
+        cell.nombreCasoLbl.text = casos[indexPath.row].nombre
+        
+        print("HOLA")
+        //Aqui comprobar el estado y asignarle una imagen que habra que meter en la galeria
+        
+        //cell.estadoCasoImg
 
-        // Configure the cell...
-
+    
         return cell
     }
-    */
+    
 
-    /*
+    
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
+    
 
-    /*
+    
     // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle != .delete {
+            return
+        }
+        
+        let alert = UIAlertController(title: "¿Quieres eliminar este caso?", message: "", preferredStyle: .alert)
+        let aceptar = UIAlertAction(title: "Eliminar", style: .destructive, handler: { _ in
+            self.casos.remove(at:indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+            
+        })
+        let cancelar = UIAlertAction(title:"Cancelar", style: .cancel)
+        alert.addAction(aceptar)
+        alert.addAction(cancelar)
+        present(alert, animated:true)
+        
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "Eliminar caso"
+    }
 
     /*
     // Override to support rearranging the table view.
