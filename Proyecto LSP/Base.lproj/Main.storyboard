@@ -512,7 +512,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="10x-Cw-xqq" customClass="TipoCristalPickerView" customModule="Proyecto_LSP" customModuleProvider="target">
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="10x-Cw-xqq">
                                 <rect key="frame" x="0.0" y="457" width="375" height="210"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
@@ -547,8 +547,8 @@
                         <viewLayoutGuide key="safeArea" id="xKr-iu-RPh"/>
                     </view>
                     <connections>
+                        <outlet property="pickerView" destination="10x-Cw-xqq" id="ys5-Q3-dWc"/>
                         <outlet property="sliderIndRef" destination="Q4o-Wj-nsR" id="nq8-gU-U2p"/>
-                        <outlet property="tipoCristalPicker" destination="10x-Cw-xqq" id="oj2-Zg-cRp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ak3-G6-OXz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -573,6 +573,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logoCriminologyInstitute" width="1200" height="452"/>
+        <image name="logoCriminologyInstitute" width="600" height="226"/>
     </resources>
 </document>

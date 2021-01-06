@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TipoCristalPickerView: UIPickerView {
+class TipoCristalPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSource {
 
     /*
     // Only override draw() if you perform custom drawing.
@@ -17,5 +17,25 @@ class TipoCristalPickerView: UIPickerView {
         // Drawing code
     }
     */
+    
+    var cristales = ["Cristal de construcción flotado", "Cristal de construcción no flotado", "Cristal de vehículo flotado", "Cristal de vehículo no flotado", "Cristal de contenedor", "Cristal de cubertería", "Cristal de luz de coche"]
+    
+    var selected:String = ""
+    
+    func numberOfComponents(in weightPickerView: UIPickerView) -> Int{
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
+        return cristales.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component:Int) -> String?{
+        return cristales[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
+        selected = cristales[component]
+    }
 
 }
