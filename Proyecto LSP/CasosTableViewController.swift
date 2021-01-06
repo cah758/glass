@@ -23,12 +23,9 @@ class CasosTableViewController: UITableViewController {
         super.viewDidLoad()
         
         for i in 1...5{
-            
             let n = newCase(nombre:"Pepe\(i)", estado:false, usuario:"1")
             casos.append(n)
-           
         }
-        
         
         /*let url = URL(string:"https://lps.tabalu.es/api/auth/projects")
         guard let jsonData = try? JSONEncoder().encode(<#T##value: Encodable##Encodable#>)
@@ -140,15 +137,11 @@ class CasosTableViewController: UITableViewController {
         return cell
     }
     
-
-    
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    
-
     
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

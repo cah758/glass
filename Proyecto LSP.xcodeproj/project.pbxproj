@@ -15,6 +15,7 @@
 		159D54682577142400F8C193 /* CasoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159D54672577142400F8C193 /* CasoTableViewCell.swift */; };
 		159D546A2577155800F8C193 /* CristalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159D54692577155800F8C193 /* CristalTableViewCell.swift */; };
 		159D546C2577192900F8C193 /* TipoCristalPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159D546B2577192900F8C193 /* TipoCristalPickerView.swift */; };
+		159D547025A627DF00F8C193 /* NumberPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159D546F25A627DE00F8C193 /* NumberPickerView.swift */; };
 		8BFCE18C255C74B400FF2798 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFCE18B255C74B400FF2798 /* AppDelegate.swift */; };
 		8BFCE18E255C74B400FF2798 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFCE18D255C74B400FF2798 /* ViewController.swift */; };
 		8BFCE191255C74B400FF2798 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BFCE18F255C74B400FF2798 /* Main.storyboard */; };
@@ -50,6 +51,7 @@
 		159D54672577142400F8C193 /* CasoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CasoTableViewCell.swift; sourceTree = "<group>"; };
 		159D54692577155800F8C193 /* CristalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CristalTableViewCell.swift; sourceTree = "<group>"; };
 		159D546B2577192900F8C193 /* TipoCristalPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipoCristalPickerView.swift; sourceTree = "<group>"; };
+		159D546F25A627DE00F8C193 /* NumberPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberPickerView.swift; sourceTree = "<group>"; };
 		8BFCE188255C74B400FF2798 /* Proyecto LSP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Proyecto LSP.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BFCE18B255C74B400FF2798 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BFCE18D255C74B400FF2798 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				155A873E25770C7300D16BA5 /* CasosTableViewController.swift */,
 				155A873C2577094B00D16BA5 /* InicioViewController.swift */,
 				8BFCE192255C74B500FF2798 /* Assets.xcassets */,
+				159D546F25A627DE00F8C193 /* NumberPickerView.swift */,
 				159D546B2577192900F8C193 /* TipoCristalPickerView.swift */,
 				8BFCE194255C74B500FF2798 /* LaunchScreen.storyboard */,
 				8BFCE197255C74B500FF2798 /* Info.plist */,
@@ -283,6 +286,7 @@
 				11E8ABC3256EDE5A007CCB52 /* AddGlassViewController.swift in Sources */,
 				155A873F25770C7300D16BA5 /* CasosTableViewController.swift in Sources */,
 				155A874125770D2700D16BA5 /* CristalesTableViewController.swift in Sources */,
+				159D547025A627DF00F8C193 /* NumberPickerView.swift in Sources */,
 				159D54682577142400F8C193 /* CasoTableViewCell.swift in Sources */,
 				8BFCE18E255C74B400FF2798 /* ViewController.swift in Sources */,
 				155A874325770FAD00D16BA5 /* RegistroViewController.swift in Sources */,
