@@ -120,9 +120,34 @@ class CasosTableViewController: UITableViewController {
     
     @IBAction func cerrarSesion(_ sender: Any) {
         
-        //Aqui hay que cerrar la sesion de la API
+        let url = URL(string:"https://lps.tabalu.es/api/auth/logout")
+
+        var request  = URLRequest(url:url!)
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField:"Content-Type")
+        //request.setValue("XMLHttpRequest", forHTTPHeaderField:"X-Requested-With")
+        request.setValue("application/json", forHTTPHeaderField:"Accept")
+        request.setValue(UserDefaults.standard.string(forKey: "token"), forHTTPHeaderField: "Authorization")
         
-        performSegue(withIdentifier: "cerrarSesion", sender: self)
+        let dataTask = URLSession.shared.dataTask(with:request){
+            data,_,error in
+            if let error = error{
+                print(error);return
+            }
+            do{
+                
+                
+                //TODO
+                
+            }
+            catch {
+                print("Error al cerrar sesion")
+            }
+        }
+
+       dataTask.resume()
+        
+        performSegue	(withIdentifier: "cerrarSesion", sender: self)
         
     }
     
@@ -188,10 +213,13 @@ class CasosTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        let selectedRow = tableView.indexPath(for: sender as! CasoTableViewCell)?.row
-        let viewDestiny = segue.destination as! CristalesTableViewController
-        viewDestiny.nombre = casos[selectedRow!].nombre
-        
+        if (segue.identifier != "cerrarSesion") {
+            
+            let selectedRow = tableView.indexPath(for: sender as! CasoTableViewCell)?.row
+            let viewDestiny = segue.destination as! CristalesTableViewController
+            viewDestiny.nombre = casos[selectedRow!].nombre
+        }
+
     }
     
 

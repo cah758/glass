@@ -55,7 +55,6 @@ class InicioViewController: UIViewController {
         request.httpBody = jsonData
         
         print(uploadDataModel.password)
-        request.httpMethod = "POST"
         let dataTask = URLSession.shared.dataTask(with:request){
             data,_,error in
             if let error = error{
@@ -63,9 +62,9 @@ class InicioViewController: UIViewController {
             }
             do{
                 //print(String(data: data!, encoding: .utf8))
-                let token = try JSONDecoder().decode(loginData.self, from: data!).access_token
+                let token =  try JSONDecoder().decode(loginData.self, from: data!).access_token
                 
-                UserDefaults.standard.set(token, forKey: "token")
+                UserDefaults.standard.set("Bearer " + token, forKey: "token")
 
 
                 DispatchQueue.main.async {

@@ -13,7 +13,7 @@
         <!--Inicio View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="InicioViewController" customModule="Proyecto_LSP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Inicio" id="BYZ-38-t0r" customClass="InicioViewController" customModule="Proyecto_LSP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -573,6 +573,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logoCriminologyInstitute" width="600" height="226"/>
+        <image name="logoCriminologyInstitute" width="1200" height="452"/>
     </resources>
 </document>
