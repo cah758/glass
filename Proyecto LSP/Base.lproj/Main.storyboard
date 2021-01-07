@@ -450,7 +450,7 @@
                     <navigationItem key="navigationItem" id="pkO-kR-gQp">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="p8a-It-sn1">
                             <connections>
-                                <segue destination="RQM-75-fyS" kind="show" id="7Ew-ch-r4u"/>
+                                <segue destination="wBb-Mn-9g2" kind="show" id="7Ew-ch-r4u"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -517,7 +517,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tipo de cristal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NUB-s8-f5j">
-                                <rect key="frame" x="133" y="422" width="108" height="21"/>
+                                <rect key="frame" x="133" y="439" width="108" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -530,30 +530,51 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Q4o-Wj-nsR">
-                                <rect key="frame" x="62" y="360" width="250" height="30"/>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OoI-b5-kyR" customClass="NumberPickerView" customModule="Proyecto_LSP" customModuleProvider="target">
+                                <rect key="frame" x="91" y="237" width="219" height="78"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HqZ-5I-VVT">
+                                <rect key="frame" x="146" y="352" width="94" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Q4o-Wj-nsR">
+                                <rect key="frame" x="62" y="397" width="250" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="sliderValueChanged:" destination="RQM-75-fyS" eventType="valueChanged" id="TDO-Uz-1Ew"/>
+                                </connections>
                             </slider>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OoI-b5-kyR">
-                                <rect key="frame" x="91" y="237" width="99" height="78"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </pickerView>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tom-Wq-eZ0">
-                                <rect key="frame" x="196" y="237" width="104" height="78"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="xKr-iu-RPh"/>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="igx-Wa-lDx">
+                        <barButtonItem key="leftBarButtonItem" title="Cancelar" id="BgC-ju-JHe">
+                            <connections>
+                                <action selector="cancelar:" destination="RQM-75-fyS" id="JGA-AI-XsQ"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Guardar" id="m6l-L9-bmt"/>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="guardar" destination="m6l-L9-bmt" id="4LS-dj-F11"/>
+                        <outlet property="numeroPickerView" destination="OoI-b5-kyR" id="UJD-Tn-Ik3"/>
                         <outlet property="pickerView" destination="10x-Cw-xqq" id="ys5-Q3-dWc"/>
                         <outlet property="sliderIndRef" destination="Q4o-Wj-nsR" id="nq8-gU-U2p"/>
+                        <outlet property="sliderLabel" destination="HqZ-5I-VVT" id="bxn-DM-d8s"/>
+                        <segue destination="fCi-va-Vdv" kind="unwind" identifier="cancelar" unwindAction="unwindCristales:" id="enb-by-cuN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ak3-G6-OXz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="fCi-va-Vdv" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2733.5999999999999" y="-90.404797601199405"/>
+            <point key="canvasLocation" x="3672.8000000000002" y="-90.404797601199405"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Dp2-GI-bL7">
@@ -570,6 +591,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K4x-yM-6TY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-335" y="-90"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Zty-kV-o0D">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wBb-Mn-9g2" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Gk5-m7-bc3">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="RQM-75-fyS" kind="relationship" relationship="rootViewController" id="ZEU-nC-ktq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fLO-N3-Doe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2733.5999999999999" y="-90.404797601199405"/>
         </scene>
     </scenes>
     <resources>

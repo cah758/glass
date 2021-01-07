@@ -10,10 +10,18 @@ import UIKit
 
 class AddGlassViewController: UIViewController{
     
+
+    @IBOutlet weak var guardar: UIBarButtonItem!
+    
+
+    @IBOutlet weak var sliderLabel: UILabel!
+    
     
     @IBOutlet weak var sliderIndRef: UISlider!
     
     @IBOutlet weak var pickerView: UIPickerView!
+    
+    @IBOutlet weak var numeroPickerView: NumberPickerView!
     
     var cristales = ["Cristal de construcción flotado", "Cristal de construcción no flotado", "Cristal de vehículo flotado", "Cristal de vehículo no flotado", "Cristal de contenedor", "Cristal de cubertería", "Cristal de luz de coche"]
     
@@ -25,8 +33,25 @@ class AddGlassViewController: UIViewController{
         self.title = "Nuevo cristal"
         pickerView.delegate = self
         pickerView.dataSource = self
+        sliderLabel.text = ""
+        sliderIndRef.minimumValue = 1.5112
+        sliderIndRef.maximumValue = 1.5339
+        
+        
+        //numeroPickerView.dataSource
+    }
+    
+    
+    @IBAction func cancelar(_ sender: Any) {
+        
+        performSegue    (withIdentifier: "cancelar", sender: self)
         
     }
+    @IBAction func sliderValueChanged(_ sender: Any) {
+        //sliderLabel.text = "\(sliderIndRef.value)"
+        sliderLabel.text = String(format:"%.4f",sliderIndRef.value)
+    }
+    
     
 }
 
@@ -45,5 +70,8 @@ extension AddGlassViewController: UIPickerViewDelegate, UIPickerViewDataSource{
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
-        selected = cristales[component]
-    }}
+        self.selected = cristales[pickerView.selectedRow(inComponent: 0)]
+        print(selected)
+    }
+    
+}

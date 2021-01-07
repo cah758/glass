@@ -10,23 +10,30 @@ import UIKit
 
 class NumberPickerView: UIPickerView {
 
-    var cristales:[Double] = []
+    let numeros = Array(0...9)
     
-    var selected:Double = 0.0
+    
+    var selected:Int = 0
+    
+    //var pickerData = [[numeros],[numeros],[numeros],[numeros]]
+    
+    
+    
     
     func numberOfComponents(in weightPickerView: UIPickerView) -> Int{
-        return 1
+        return 4
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
-        return cristales.count
+        return numeros.count
     }
-   /*
+   
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, inComponent component:Int) -> String?{
-        return cristales[row % cristales.count]
-    }*/
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
-        selected = cristales[component]
+        return String(numeros[row])
     }
+    /*
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
+        selected = pickerData[0][row]
+        print(selected)
+    }*/
 }
