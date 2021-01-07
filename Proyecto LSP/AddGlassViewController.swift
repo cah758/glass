@@ -21,7 +21,6 @@ class AddGlassViewController: UIViewController{
     
     @IBOutlet weak var pickerView: UIPickerView!
     
-    @IBOutlet weak var numeroPickerView: NumberPickerView!
     
     var cristales = ["Cristal de construcción flotado", "Cristal de construcción no flotado", "Cristal de vehículo flotado", "Cristal de vehículo no flotado", "Cristal de contenedor", "Cristal de cubertería", "Cristal de luz de coche"]
     
@@ -38,7 +37,6 @@ class AddGlassViewController: UIViewController{
         sliderIndRef.maximumValue = 1.5339
         
         
-        //numeroPickerView.dataSource
     }
     
     
