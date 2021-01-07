@@ -24,6 +24,8 @@ class AddGlassViewController: UIViewController{
     
     @IBOutlet weak var labelNa: UILabel!
     
+    @IBOutlet weak var labelIR: UILabel!
+    
     @IBOutlet weak var sliderIndRef: UISlider!
     
     @IBOutlet weak var pickerView: UIPickerView!
@@ -46,6 +48,13 @@ class AddGlassViewController: UIViewController{
         
     }
     
+    @IBAction func guardarCristal(_ sender: Any) {
+        //Hace cosas con la BBDD
+        
+        
+        
+         performSegue    (withIdentifier: "cancelar", sender: self)
+    }
     
     @IBAction func cancelar(_ sender: Any) {
         
@@ -78,5 +87,11 @@ extension AddGlassViewController: UIPickerViewDelegate, UIPickerViewDataSource{
         self.selected = cristales[pickerView.selectedRow(inComponent: 0)]
         print(selected)
     }
+    
+}
+
+extension AddGlassViewController: UIImagePickerControllerDelegate{
+    
+    
     
 }

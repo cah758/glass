@@ -524,14 +524,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Índice de refracción" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LfL-p2-z5Z">
-                                <rect key="frame" x="117" y="263" width="152" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HqZ-5I-VVT">
-                                <rect key="frame" x="146" y="292" width="94" height="21"/>
+                                <rect key="frame" x="28" y="254" width="152" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -544,6 +537,20 @@
                                     <action selector="sliderValueChanged:" destination="RQM-75-fyS" eventType="valueChanged" id="TDO-Uz-1Ew"/>
                                 </connections>
                             </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0,00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F9R-76-48y">
+                                <rect key="frame" x="214" y="254" width="35" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HqZ-5I-VVT">
+                                <rect key="frame" x="140" y="340" width="94" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="xKr-iu-RPh"/>
@@ -555,13 +562,18 @@
                                 <action selector="cancelar:" destination="RQM-75-fyS" id="JGA-AI-XsQ"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Guardar" id="m6l-L9-bmt"/>
+                        <barButtonItem key="rightBarButtonItem" title="Guardar" id="m6l-L9-bmt">
+                            <connections>
+                                <action selector="guardarCristal:" destination="RQM-75-fyS" id="pSo-Hu-OcD"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="guardar" destination="m6l-L9-bmt" id="4LS-dj-F11"/>
                         <outlet property="labelAl" destination="Zce-RO-Yzj" id="kwd-1A-d4O"/>
                         <outlet property="labelBa" destination="kqP-I8-pa4" id="AeR-AR-TFO"/>
+                        <outlet property="labelIR" destination="F9R-76-48y" id="dH9-ed-meF"/>
                         <outlet property="labelMg" destination="Mqw-Be-eZH" id="y0C-Xi-nby"/>
                         <outlet property="labelNa" destination="bRh-Th-tdb" id="zdB-CU-aFx"/>
                         <outlet property="pickerView" destination="10x-Cw-xqq" id="ys5-Q3-dWc"/>
