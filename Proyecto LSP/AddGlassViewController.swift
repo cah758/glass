@@ -16,6 +16,13 @@ class AddGlassViewController: UIViewController{
 
     @IBOutlet weak var sliderLabel: UILabel!
     
+    @IBOutlet weak var labelAl: UILabel!
+    
+    @IBOutlet weak var labelBa: UILabel!
+    
+    @IBOutlet weak var labelMg: UILabel!
+    
+    @IBOutlet weak var labelNa: UILabel!
     
     @IBOutlet weak var sliderIndRef: UISlider!
     

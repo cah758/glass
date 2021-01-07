@@ -560,6 +560,10 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="guardar" destination="m6l-L9-bmt" id="4LS-dj-F11"/>
+                        <outlet property="labelAl" destination="Zce-RO-Yzj" id="kwd-1A-d4O"/>
+                        <outlet property="labelBa" destination="kqP-I8-pa4" id="AeR-AR-TFO"/>
+                        <outlet property="labelMg" destination="Mqw-Be-eZH" id="y0C-Xi-nby"/>
+                        <outlet property="labelNa" destination="bRh-Th-tdb" id="zdB-CU-aFx"/>
                         <outlet property="pickerView" destination="10x-Cw-xqq" id="ys5-Q3-dWc"/>
                         <outlet property="sliderIndRef" destination="Q4o-Wj-nsR" id="nq8-gU-U2p"/>
                         <outlet property="sliderLabel" destination="HqZ-5I-VVT" id="bxn-DM-d8s"/>
