@@ -165,8 +165,52 @@ class AddGlassViewController: UIViewController{
     
     
     func algoritmo() -> String{
-        let cristal:String = ""
-        //algoritmo
+        var cristal:String = ""
+       
+        let aluminio = (labelAl.text! as NSString).floatValue
+        let bario = (labelBa.text! as NSString).floatValue
+        let magnesio = (labelMg.text! as NSString).floatValue
+        let sodio = (labelNa.text! as NSString).floatValue
+        let indiceRef = (labelIR.text! as NSString).floatValue
+        
+        if(magnesio < 2.55){
+            if(sodio < 13.82){
+                if(indiceRef < 1.52){
+                    cristal = "Cristal de contenedor"
+                }else{
+                    cristal = "Cristal de construcción no flotado"
+                }
+            }else{
+                if(bario < 0.2){
+                    cristal = "Cristal de cubertería"
+                }else{
+                    cristal = "Cristal de faro de coche"
+                }
+            }
+        }else{
+            if(aluminio < 1.42){
+                if(indiceRef < 1.52){
+                    cristal = "Cristal de vehículo flotado"
+                }else{
+                    if(sodio < 13.61){
+                        if(magnesio < 3.67){
+                            cristal = "Cristal de construcción flotado"
+                        }else{
+                            cristal = "Cristal de construcción no flotado"
+                        }
+                    }else{
+                        cristal = "Cristal de construcción flotado"
+                    }
+                }
+            }else{
+                if(bario < 0.65){
+                    cristal = "Cristal de construcción no flotado"
+                }else{
+                    cristal = "Cristal de faro de coche"
+                }
+            }
+        }
+        
         return cristal
     }
     
