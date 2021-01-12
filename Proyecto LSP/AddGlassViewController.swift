@@ -130,7 +130,7 @@ class AddGlassViewController: UIViewController{
         
         
         
-         performSegue    (withIdentifier: "cancelar", sender: self)
+        performSegue    (withIdentifier: "cancelar", sender: self)
     }
     
     @IBAction func cancelar(_ sender: Any) {

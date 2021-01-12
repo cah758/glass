@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		11E8ABC3256EDE5A007CCB52 /* AddGlassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E8ABC2256EDE5A007CCB52 /* AddGlassViewController.swift */; };
+		1539760825AE385A0069FF82 /* DatosCristalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1539760725AE385A0069FF82 /* DatosCristalViewController.swift */; };
 		155A873D2577094B00D16BA5 /* InicioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155A873C2577094B00D16BA5 /* InicioViewController.swift */; };
 		155A873F25770C7300D16BA5 /* CasosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155A873E25770C7300D16BA5 /* CasosTableViewController.swift */; };
 		155A874125770D2700D16BA5 /* CristalesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155A874025770D2700D16BA5 /* CristalesTableViewController.swift */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		11E8ABC2256EDE5A007CCB52 /* AddGlassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGlassViewController.swift; sourceTree = "<group>"; };
+		1539760725AE385A0069FF82 /* DatosCristalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatosCristalViewController.swift; sourceTree = "<group>"; };
 		155A873C2577094B00D16BA5 /* InicioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InicioViewController.swift; sourceTree = "<group>"; };
 		155A873E25770C7300D16BA5 /* CasosTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CasosTableViewController.swift; sourceTree = "<group>"; };
 		155A874025770D2700D16BA5 /* CristalesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CristalesTableViewController.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 		8BFCE18A255C74B400FF2798 /* Proyecto LSP */ = {
 			isa = PBXGroup;
 			children = (
+				1539760725AE385A0069FF82 /* DatosCristalViewController.swift */,
 				159D54692577155800F8C193 /* CristalTableViewCell.swift */,
 				159D54672577142400F8C193 /* CasoTableViewCell.swift */,
 				8BFCE18B255C74B400FF2798 /* AppDelegate.swift */,
@@ -279,6 +282,7 @@
 			files = (
 				11E8ABC3256EDE5A007CCB52 /* AddGlassViewController.swift in Sources */,
 				155A873F25770C7300D16BA5 /* CasosTableViewController.swift in Sources */,
+				1539760825AE385A0069FF82 /* DatosCristalViewController.swift in Sources */,
 				155A874125770D2700D16BA5 /* CristalesTableViewController.swift in Sources */,
 				159D54682577142400F8C193 /* CasoTableViewCell.swift in Sources */,
 				8BFCE18E255C74B400FF2798 /* ViewController.swift in Sources */,
