@@ -9,6 +9,19 @@
 /* Begin PBXBuildFile section */
 		11E8ABC3256EDE5A007CCB52 /* AddGlassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E8ABC2256EDE5A007CCB52 /* AddGlassViewController.swift */; };
 		1539760825AE385A0069FF82 /* DatosCristalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1539760725AE385A0069FF82 /* DatosCristalViewController.swift */; };
+		1539760B25AE3A670069FF82 /* AddGlassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E8ABC2256EDE5A007CCB52 /* AddGlassViewController.swift */; };
+		1539760C25AE3A670069FF82 /* CasosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155A873E25770C7300D16BA5 /* CasosTableViewController.swift */; };
+		1539760D25AE3A670069FF82 /* DatosCristalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1539760725AE385A0069FF82 /* DatosCristalViewController.swift */; };
+		1539760E25AE3A670069FF82 /* CristalesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155A874025770D2700D16BA5 /* CristalesTableViewController.swift */; };
+		1539760F25AE3A670069FF82 /* CasoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159D54672577142400F8C193 /* CasoTableViewCell.swift */; };
+		1539761025AE3A670069FF82 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFCE18D255C74B400FF2798 /* ViewController.swift */; };
+		1539761125AE3A670069FF82 /* RegistroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155A874225770FAD00D16BA5 /* RegistroViewController.swift */; };
+		1539761225AE3A670069FF82 /* CristalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159D54692577155800F8C193 /* CristalTableViewCell.swift */; };
+		1539761325AE3A670069FF82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFCE18B255C74B400FF2798 /* AppDelegate.swift */; };
+		1539761425AE3A670069FF82 /* InicioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155A873C2577094B00D16BA5 /* InicioViewController.swift */; };
+		1539761725AE3A670069FF82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BFCE194255C74B500FF2798 /* LaunchScreen.storyboard */; };
+		1539761825AE3A670069FF82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BFCE192255C74B500FF2798 /* Assets.xcassets */; };
+		1539761925AE3A670069FF82 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BFCE18F255C74B400FF2798 /* Main.storyboard */; };
 		155A873D2577094B00D16BA5 /* InicioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155A873C2577094B00D16BA5 /* InicioViewController.swift */; };
 		155A873F25770C7300D16BA5 /* CasosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155A873E25770C7300D16BA5 /* CasosTableViewController.swift */; };
 		155A874125770D2700D16BA5 /* CristalesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155A874025770D2700D16BA5 /* CristalesTableViewController.swift */; };
@@ -44,13 +57,15 @@
 /* Begin PBXFileReference section */
 		11E8ABC2256EDE5A007CCB52 /* AddGlassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGlassViewController.swift; sourceTree = "<group>"; };
 		1539760725AE385A0069FF82 /* DatosCristalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatosCristalViewController.swift; sourceTree = "<group>"; };
+		1539761D25AE3A670069FF82 /* ProyectoAlgoritmo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProyectoAlgoritmo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1539761E25AE3A680069FF82 /* Proyecto LSP copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Proyecto LSP copy-Info.plist"; path = "/Users/bruno/Desktop/Glass/glass2/glass/Proyecto LSP copy-Info.plist"; sourceTree = "<absolute>"; };
 		155A873C2577094B00D16BA5 /* InicioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InicioViewController.swift; sourceTree = "<group>"; };
 		155A873E25770C7300D16BA5 /* CasosTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CasosTableViewController.swift; sourceTree = "<group>"; };
 		155A874025770D2700D16BA5 /* CristalesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CristalesTableViewController.swift; sourceTree = "<group>"; };
 		155A874225770FAD00D16BA5 /* RegistroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroViewController.swift; sourceTree = "<group>"; };
 		159D54672577142400F8C193 /* CasoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CasoTableViewCell.swift; sourceTree = "<group>"; };
 		159D54692577155800F8C193 /* CristalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CristalTableViewCell.swift; sourceTree = "<group>"; };
-		8BFCE188255C74B400FF2798 /* Proyecto LSP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Proyecto LSP.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8BFCE188255C74B400FF2798 /* ProyectoManual.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProyectoManual.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BFCE18B255C74B400FF2798 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BFCE18D255C74B400FF2798 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8BFCE190255C74B400FF2798 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -66,6 +81,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1539761525AE3A670069FF82 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8BFCE185255C74B400FF2798 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -97,15 +119,17 @@
 				8BFCE19F255C74B500FF2798 /* Proyecto LSPTests */,
 				8BFCE1AA255C74B500FF2798 /* Proyecto LSPUITests */,
 				8BFCE189255C74B400FF2798 /* Products */,
+				1539761E25AE3A680069FF82 /* Proyecto LSP copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
 		8BFCE189255C74B400FF2798 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8BFCE188255C74B400FF2798 /* Proyecto LSP.app */,
+				8BFCE188255C74B400FF2798 /* ProyectoManual.app */,
 				8BFCE19C255C74B500FF2798 /* Proyecto LSPTests.xctest */,
 				8BFCE1A7255C74B500FF2798 /* Proyecto LSPUITests.xctest */,
+				1539761D25AE3A670069FF82 /* ProyectoAlgoritmo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -152,9 +176,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8BFCE187255C74B400FF2798 /* Proyecto LSP */ = {
+		1539760925AE3A670069FF82 /* ProyectoAlgoritmo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8BFCE1B0255C74B500FF2798 /* Build configuration list for PBXNativeTarget "Proyecto LSP" */;
+			buildConfigurationList = 1539761A25AE3A670069FF82 /* Build configuration list for PBXNativeTarget "ProyectoAlgoritmo" */;
+			buildPhases = (
+				1539760A25AE3A670069FF82 /* Sources */,
+				1539761525AE3A670069FF82 /* Frameworks */,
+				1539761625AE3A670069FF82 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ProyectoAlgoritmo;
+			productName = "Proyecto LSP";
+			productReference = 1539761D25AE3A670069FF82 /* ProyectoAlgoritmo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8BFCE187255C74B400FF2798 /* ProyectoManual */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8BFCE1B0255C74B500FF2798 /* Build configuration list for PBXNativeTarget "ProyectoManual" */;
 			buildPhases = (
 				8BFCE184255C74B400FF2798 /* Sources */,
 				8BFCE185255C74B400FF2798 /* Frameworks */,
@@ -164,9 +205,9 @@
 			);
 			dependencies = (
 			);
-			name = "Proyecto LSP";
+			name = ProyectoManual;
 			productName = "Proyecto LSP";
-			productReference = 8BFCE188255C74B400FF2798 /* Proyecto LSP.app */;
+			productReference = 8BFCE188255C74B400FF2798 /* ProyectoManual.app */;
 			productType = "com.apple.product-type.application";
 		};
 		8BFCE19B255C74B500FF2798 /* Proyecto LSPTests */ = {
@@ -241,14 +282,25 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8BFCE187255C74B400FF2798 /* Proyecto LSP */,
+				8BFCE187255C74B400FF2798 /* ProyectoManual */,
 				8BFCE19B255C74B500FF2798 /* Proyecto LSPTests */,
 				8BFCE1A6255C74B500FF2798 /* Proyecto LSPUITests */,
+				1539760925AE3A670069FF82 /* ProyectoAlgoritmo */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		1539761625AE3A670069FF82 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1539761725AE3A670069FF82 /* LaunchScreen.storyboard in Resources */,
+				1539761825AE3A670069FF82 /* Assets.xcassets in Resources */,
+				1539761925AE3A670069FF82 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8BFCE186255C74B400FF2798 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -276,6 +328,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1539760A25AE3A670069FF82 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1539760B25AE3A670069FF82 /* AddGlassViewController.swift in Sources */,
+				1539760C25AE3A670069FF82 /* CasosTableViewController.swift in Sources */,
+				1539760D25AE3A670069FF82 /* DatosCristalViewController.swift in Sources */,
+				1539760E25AE3A670069FF82 /* CristalesTableViewController.swift in Sources */,
+				1539760F25AE3A670069FF82 /* CasoTableViewCell.swift in Sources */,
+				1539761025AE3A670069FF82 /* ViewController.swift in Sources */,
+				1539761125AE3A670069FF82 /* RegistroViewController.swift in Sources */,
+				1539761225AE3A670069FF82 /* CristalTableViewCell.swift in Sources */,
+				1539761325AE3A670069FF82 /* AppDelegate.swift in Sources */,
+				1539761425AE3A670069FF82 /* InicioViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8BFCE184255C74B400FF2798 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -314,12 +383,12 @@
 /* Begin PBXTargetDependency section */
 		8BFCE19E255C74B500FF2798 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8BFCE187255C74B400FF2798 /* Proyecto LSP */;
+			target = 8BFCE187255C74B400FF2798 /* ProyectoManual */;
 			targetProxy = 8BFCE19D255C74B500FF2798 /* PBXContainerItemProxy */;
 		};
 		8BFCE1A9255C74B500FF2798 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8BFCE187255C74B400FF2798 /* Proyecto LSP */;
+			target = 8BFCE187255C74B400FF2798 /* ProyectoManual */;
 			targetProxy = 8BFCE1A8255C74B500FF2798 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -344,6 +413,42 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		1539761B25AE3A670069FF82 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Proyecto LSP copy-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.ual.lps.Proyecto-LSP";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = LPSAlgoritmo;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1539761C25AE3A670069FF82 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Proyecto LSP copy-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.ual.lps.Proyecto-LSP";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = LPSAlgoritmo;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		8BFCE1AE255C74B500FF2798 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -472,6 +577,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.ual.lps.Proyecto-LSP";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = LPSManual;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -489,6 +595,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.ual.lps.Proyecto-LSP";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = LPSManual;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -575,6 +682,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1539761A25AE3A670069FF82 /* Build configuration list for PBXNativeTarget "ProyectoAlgoritmo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1539761B25AE3A670069FF82 /* Debug */,
+				1539761C25AE3A670069FF82 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		8BFCE183255C74B400FF2798 /* Build configuration list for PBXProject "Proyecto LSP" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -584,7 +700,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8BFCE1B0255C74B500FF2798 /* Build configuration list for PBXNativeTarget "Proyecto LSP" */ = {
+		8BFCE1B0255C74B500FF2798 /* Build configuration list for PBXNativeTarget "ProyectoManual" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8BFCE1B1255C74B500FF2798 /* Debug */,

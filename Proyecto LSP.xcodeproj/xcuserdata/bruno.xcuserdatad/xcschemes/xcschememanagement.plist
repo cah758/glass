@@ -4,10 +4,38 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Proyecto LSP.xcscheme_^#shared#^_</key>
+		<key>ProyectoAlgoritmo.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>ProyectoManual.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>1539760925AE3A670069FF82</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8BFCE187255C74B400FF2798</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8BFCE19B255C74B500FF2798</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8BFCE1A6255C74B500FF2798</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

@@ -54,7 +54,10 @@ class AddGlassViewController: UIViewController{
         sliderIndRef.minimumValue = 1.5112
         sliderIndRef.maximumValue = 1.5339
         sliderIndRef.isUserInteractionEnabled = true
-        
+       
+        #if LPSManual
+            pickerView.isHidden = true
+        #endif
        
     }
     
@@ -128,7 +131,12 @@ class AddGlassViewController: UIViewController{
     @IBAction func guardarCristal(_ sender: Any) {
         //Hace cosas con la BBDD
         
-        
+        #if LPSAlgoritmo
+            let tipoCristal = algoritmo()
+            //Cosas de la BBDD
+        #else
+            //Otras cosas de la BBDD
+        #endif
         
         performSegue    (withIdentifier: "cancelar", sender: self)
     }
@@ -155,6 +163,12 @@ class AddGlassViewController: UIViewController{
         
     }
     
+    
+    func algoritmo() -> String{
+        let cristal:String = ""
+        //algoritmo
+        return cristal
+    }
     
 }
 
