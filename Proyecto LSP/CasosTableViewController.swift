@@ -19,12 +19,23 @@ class CasosTableViewController: UITableViewController {
         let updated_at:String
     }
     
+    struct createCase:Codable{
+        let name:String
+        let state:Int
+    }
     //Array para cargar los casos/proyectos. Esta puesto String temporalmente
     var casos:[newCase] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        fetchData()
+        
+        
+    }
+    
+    func fetchData(){
         
         let url = URL(string:"https://lps.tabalu.es/api/auth/projects")
         
@@ -67,10 +78,11 @@ class CasosTableViewController: UITableViewController {
                 self.tableView.reloadData()
             }
             
-        }.resume()
-        
+            }.resume()
         
     }
+    
+    
 
     // MARK: - Table view data source
 
@@ -95,51 +107,54 @@ class CasosTableViewController: UITableViewController {
                     return
             }
             
-            //let n = newCase(nombre:caseName, estado:false, usuario:"1")
-           // self.casos.append(n)
+            
             //Aqui se hace lo de guardar en la BBDD creo
             
-           /* let url = URL(string:"https://lps.tabalu.es/api/auth/projects")
+            let url = URL(string:"https://lps.tabalu.es/api/auth/createProject")
             
-            let uploadDataModel = newCase(nombre: caseName)
-            
-            struct createdCase:Codable{
-                
-            }
-            
-            guard let jsonData = try? JSONEncoder().encode(uploadDataModel) else{
-                print("Error creando el caso")
-                return
-            }
-            
+            let token = UserDefaults.standard.object(forKey: "token") as! String
             var request = URLRequest(url:url!)
             request.httpMethod = "POST"
-            request.setValue("application/json",forHTTPHeaderField: "Content-Type")
-            request.setValue("application/json",forHTTPHeaderField: "Accept")
+            request.setValue("\(token)", forHTTPHeaderField: "Authorization")
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.setValue("application/json", forHTTPHeaderField: "Accept")
+            request.setValue("XMLHttpRequest", forHTTPHeaderField: "X-Requested-With")
+            
+            let n = createCase(name:caseName, state:0)
+            
+            guard let jsonData = try? JSONEncoder().encode(n) else{
+                print("Error al codificar")
+                return
+            }
             request.httpBody = jsonData
             
-            let dataTask = URLSession.shared.dataTask(with: request){
-                data,response,error in
+            
+            let dataTask = URLSession.shared.dataTask(with:request){
+                data,_,error in
                 if let error = error{
                     print(error);return
                 }
-                let httpResponse = response as? HTTPURLResponse
-                if(httpResponse!.statusCode != 201){
+                do{
+                    
+                    let alert = UIAlertController(title: "Caso creado correctamente", message: "", preferredStyle: .alert)
+                    let okAction = UIAlertAction(title: "Ok", style: .destructive)
+                    alert.addAction(okAction)
+                    self.present(alert,animated: true)
                     DispatchQueue.main.async {
-                        let alert = UIAlertController(title:"Error",message:"Ha habido un error.", preferredStyle:.alert)
-                        let okAction = UIAlertAction(title:"Ok", style: .cancel)
                         
-                        alert.addAction(okAction)
-                        self.present(alert,animated:true)
+                        self.fetchData()
                     }
                     
                 }
-                
+                catch {
+                    
+                    
+                }
             }
+            
             dataTask.resume()
-            */
-            //print(caseName)
-            self.tableView.reloadData()
+            
+            
         }
         
         let cancelar = UIAlertAction(title:"Cancelar", style: .cancel)
