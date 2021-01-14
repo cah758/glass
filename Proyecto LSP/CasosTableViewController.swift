@@ -134,22 +134,15 @@ class CasosTableViewController: UITableViewController {
                 if let error = error{
                     print(error);return
                 }
-                do{
                     
                     let alert = UIAlertController(title: "Caso creado correctamente", message: "", preferredStyle: .alert)
                     let okAction = UIAlertAction(title: "Ok", style: .destructive)
                     alert.addAction(okAction)
                     self.present(alert,animated: true)
                     DispatchQueue.main.async {
-                        
                         self.fetchData()
                     }
                     
-                }
-                catch {
-                    
-                    
-                }
             }
             
             dataTask.resume()
@@ -200,6 +193,46 @@ class CasosTableViewController: UITableViewController {
         
     }
     
+    func deleteCaso(id:Int){
+        
+        let url = URL(string:"https://lps.tabalu.es/api/auth/destroyProject/\(id)")
+        
+        let token = UserDefaults.standard.object(forKey: "token") as! String
+        var request = URLRequest(url:url!)
+        request.httpMethod = "GET"
+        request.setValue("\(token)", forHTTPHeaderField: "Authorization")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("*/*", forHTTPHeaderField: "Accept")
+        request.setValue("XMLHttpRequest", forHTTPHeaderField: "X-Requested-With")
+        
+        
+        let dataTask = URLSession.shared.dataTask(with:request){
+            data,response,error in
+            guard let data = data, let response = response as? HTTPURLResponse, error == nil else{
+                if let error = error{
+                    print(error)
+                }
+                return
+            }
+            
+            if response.statusCode == 201{
+                let alert = UIAlertController(title: "Caso eliminado correctamente", message: "", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "Ok", style: .default)
+                alert.addAction(okAction)
+                self.present(alert,animated: true)
+                DispatchQueue.main.async {
+                    self.fetchData()
+                }
+            }else{
+                print("RESPUESTA MALA:\(response.statusCode)")
+            }
+            
+            
+            }.resume()
+        
+        
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CasoTableViewCell", for: indexPath) as! CasoTableViewCell
         cell.nombreCasoLbl.text = casos[indexPath.row].name
@@ -227,6 +260,7 @@ class CasosTableViewController: UITableViewController {
         
         let alert = UIAlertController(title: "¿Quieres eliminar este caso?", message: "", preferredStyle: .alert)
         let aceptar = UIAlertAction(title: "Eliminar", style: .destructive, handler: { _ in
+            self.deleteCaso(id:self.casos[indexPath.row].id)
             self.casos.remove(at:indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             
