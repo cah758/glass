@@ -26,10 +26,23 @@ class DatosCristalViewController: UIViewController {
     
     @IBOutlet weak var labelMg: UILabel!
     
+    var nombreC:String = ""
+    var al:Double = 0.0
+    var ba:Double = 0.0
+    var na:Double = 0.0
+    var iR:Double = 0.0
+    var mg:Double = 0.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Traerse las cosas de la BD y ponerlas en su sitio. Y ponerle foto.
+        nombreCristal.text = nombreC
+        labelAl.text = String(format:"%.2f",al)
+        labelBa.text = String(format:"%.2f",ba)
+        labelNa.text = String(format:"%.2f",na)
+        labelIR.text = String(format:"%.4f",iR)
+        labelMg.text = String(format:"%.2f",mg)
         
     }
     

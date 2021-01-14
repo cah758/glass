@@ -303,6 +303,7 @@ class CasosTableViewController: UITableViewController {
             let selectedRow = tableView.indexPath(for: sender as! CasoTableViewCell)?.row
             let viewDestiny = segue.destination as! CristalesTableViewController
             viewDestiny.nombre = casos[selectedRow!].name
+            viewDestiny.idCaso = casos[selectedRow!].id
         }else{
             let viewDestiny = segue.destination as! InicioViewController
             viewDestiny.email.text = ""
