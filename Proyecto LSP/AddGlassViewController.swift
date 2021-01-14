@@ -31,7 +31,8 @@ class AddGlassViewController: UIViewController{
     
     @IBOutlet weak var pickerView: UIPickerView!
     
-   
+    @IBOutlet weak var tipoCristalLabel: UILabel!
+    
     @IBOutlet weak var alImg: UIImageView!
     
     @IBOutlet weak var baImg: UIImageView!
@@ -55,8 +56,9 @@ class AddGlassViewController: UIViewController{
         sliderIndRef.maximumValue = 1.5339
         sliderIndRef.isUserInteractionEnabled = true
        
-        #if LPSManual
+        #if LPSAlgoritmo
             pickerView.isHidden = true
+            tipoCristalLabel.isHidden = true
         #endif
        
     }

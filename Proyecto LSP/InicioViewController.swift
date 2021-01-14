@@ -22,7 +22,7 @@ class InicioViewController: UIViewController {
         let expires_at:  String
     }
 
-    
+    var no = false
     @IBOutlet weak var email: UITextField!
     
     @IBOutlet weak var passwordUsuario: UITextField!
@@ -32,7 +32,7 @@ class InicioViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        no = false
         // Do any additional setup after loading the view.
     }
     
@@ -54,28 +54,30 @@ class InicioViewController: UIViewController {
         request.setValue("application/json", forHTTPHeaderField:"Accept")
         request.httpBody = jsonData
         
-        print(uploadDataModel.password)
         let dataTask = URLSession.shared.dataTask(with:request){
             data,_,error in
             if let error = error{
                 print(error);return
             }
             do{
-                //print(String(data: data!, encoding: .utf8))
+               
                 let token =  try JSONDecoder().decode(loginData.self, from: data!).access_token
                 
                 UserDefaults.standard.set("Bearer " + token, forKey: "token")
 
-
+                
                 DispatchQueue.main.async {
                     
+                    self.iniciar()
                 }
                 
             }
             catch {
-                print("Error al iniciar sesion")
+                self.noIniciar()
+                
             }
         }
+        
         dataTask.resume()
 
         
@@ -84,7 +86,26 @@ class InicioViewController: UIViewController {
     @IBAction func unwind(_ seg:UIStoryboardSegue){
         
     }
+    func noIniciar(){
+        self.no = true
+    }
+    func iniciar(){
+        self.no = false
+    }
     
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "unwindToInicio"{
+            if no{
+                let alerta = UIAlertController(title: "Error al iniciar sesión,", message: "Introduce tus datos correctamente", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "Continuar", style: .destructive)
+                alerta.addAction(okAction)
+                present(alerta, animated: true)
+                
+                return false
+            }
+        }
+        return true
+    }
     
     // MARK: - Navigation
 

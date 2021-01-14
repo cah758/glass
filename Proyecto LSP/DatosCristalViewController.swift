@@ -20,7 +20,6 @@ class DatosCristalViewController: UIViewController {
     
     @IBOutlet weak var labelIR: UILabel!
     
-    
     @IBOutlet weak var labelNa: UILabel!
     
     @IBOutlet weak var labelBa: UILabel!

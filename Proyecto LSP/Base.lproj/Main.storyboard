@@ -42,7 +42,7 @@
                                         </state>
                                         <connections>
                                             <action selector="iniciarSesion:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Cw1-fn-d5i"/>
-                                            <segue destination="R5J-V6-a75" kind="show" identifier="unwindToInicio" id="PTu-C5-8Qt"/>
+                                            <segue destination="HCv-w8-bId" kind="show" identifier="unwindToInicio" id="cBM-sI-XZE"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="yY3-0f-fRj">
@@ -209,16 +209,16 @@
         <scene sceneID="zX8-MV-N6K">
             <objects>
                 <tableViewController id="UGw-q0-9tO" customClass="CasosTableViewController" customModule="Proyecto_LSP" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ZjM-Xg-a3e">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="65" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ZjM-Xg-a3e">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CasoTableViewCell" rowHeight="55" id="nfV-nN-i2g" customClass="CasoTableViewCell" customModule="Proyecto_LSP" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="55"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CasoTableViewCell" rowHeight="65" id="nfV-nN-i2g" customClass="CasoTableViewCell" customModule="Proyecto_LSP" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nfV-nN-i2g" id="IFX-BG-tF1">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="54.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="64.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre del caso" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eGy-AX-lY0">
@@ -227,9 +227,10 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="POj-NM-fAU">
-                                            <rect key="frame" x="315" y="5" width="44" height="44"/>
+                                        <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="progress" translatesAutoresizingMaskIntoConstraints="NO" id="POj-NM-fAU">
+                                            <rect key="frame" x="315" y="11" width="44" height="44"/>
                                             <constraints>
+                                                <constraint firstAttribute="width" constant="44" id="UQL-d7-MNV"/>
                                                 <constraint firstAttribute="height" constant="44" id="rHn-GO-pwI"/>
                                             </constraints>
                                         </imageView>
@@ -255,6 +256,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="SwJ-7L-NPQ">
+                        <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" title="Cerrar sesión" id="A4R-en-AK6">
                             <connections>
                                 <action selector="cerrarSesion:" destination="UGw-q0-9tO" id="G7l-cC-S2V"/>
@@ -266,6 +268,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="H6a-ea-G4y" kind="unwind" identifier="cerrarSesion" unwindAction="unwind:" id="HAK-OZ-yG3"/>
                     </connections>
@@ -273,7 +276,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="60d-76-Xue" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="H6a-ea-G4y" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="816.79999999999995" y="-90.404797601199405"/>
+            <point key="canvasLocation" x="681" y="-90"/>
         </scene>
         <!--Datos Cristal View Controller-->
         <scene sceneID="QaC-gT-cCv">
@@ -429,7 +432,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MYv-7x-KJA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1789.5999999999999" y="-90.404797601199405"/>
+            <point key="canvasLocation" x="1790" y="-90"/>
         </scene>
         <!--Add Glass View Controller-->
         <scene sceneID="JZZ-dH-kQV">
@@ -564,6 +567,7 @@
                         <outlet property="naImg" destination="YU3-J1-jdf" id="WyS-Q9-vBE"/>
                         <outlet property="pickerView" destination="10x-Cw-xqq" id="ys5-Q3-dWc"/>
                         <outlet property="sliderIndRef" destination="Q4o-Wj-nsR" id="nq8-gU-U2p"/>
+                        <outlet property="tipoCristalLabel" destination="NUB-s8-f5j" id="nLT-Km-kbR"/>
                         <segue destination="fCi-va-Vdv" kind="unwind" identifier="cancelar" unwindAction="unwindCristales:" id="enb-by-cuN"/>
                     </connections>
                 </viewController>
@@ -597,23 +601,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3672.8000000000002" y="-90.404797601199405"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Dp2-GI-bL7">
-            <objects>
-                <navigationController id="R5J-V6-a75" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="RY1-Ab-VBc">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="UGw-q0-9tO" kind="relationship" relationship="rootViewController" id="ghn-pc-mRv"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="K4x-yM-6TY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-335" y="-90"/>
+            <point key="canvasLocation" x="3606" y="-90"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Zty-kV-o0D">
@@ -631,16 +619,36 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fLO-N3-Doe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2733.5999999999999" y="-90.404797601199405"/>
+            <point key="canvasLocation" x="2724" y="-90"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="o1h-BH-YAe">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HCv-w8-bId" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="vEM-LT-0uv"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="J08-ta-TCy">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="UGw-q0-9tO" kind="relationship" relationship="rootViewController" id="ici-BV-dlO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KWw-BO-cpa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-348" y="-90"/>
         </scene>
     </scenes>
     <resources>
         <image name="aluminio" width="40" height="45"/>
         <image name="bario" width="40" height="45"/>
-        <image name="check" width="180" height="180"/>
+        <image name="check" width="40" height="40"/>
         <image name="iRefrac" width="40" height="45"/>
         <image name="logoCriminologyInstitute" width="600" height="226"/>
         <image name="magnesio" width="40" height="40"/>
+        <image name="progress" width="40" height="40"/>
         <image name="sodio" width="40" height="45"/>
     </resources>
 </document>

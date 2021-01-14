@@ -11,9 +11,12 @@ import UIKit
 class CasosTableViewController: UITableViewController {
     
     struct newCase:Codable{
-        let nombre:String
-        let estado:Bool
-        let usuario:String
+        let id:Int
+        let name:String
+        let state:Int
+        let user_id:Int
+        let created_at:String
+        let updated_at:String
     }
     
     //Array para cargar los casos/proyectos. Esta puesto String temporalmente
@@ -22,20 +25,51 @@ class CasosTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        for i in 1...5{
-            let n = newCase(nombre:"Pepe\(i)", estado:false, usuario:"1")
-            casos.append(n)
-        }
         
-        /*let url = URL(string:"https://lps.tabalu.es/api/auth/projects")
-        guard let jsonData = try? JSONEncoder().encode(<#T##value: Encodable##Encodable#>)
+        let url = URL(string:"https://lps.tabalu.es/api/auth/projects")
         
+        let token = UserDefaults.standard.object(forKey: "token") as! String
         var request = URLRequest(url:url!)
         request.httpMethod = "GET"
-        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        request.setValue("\(token)", forHTTPHeaderField: "Authorization")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("application/json", forHTTPHeaderField: "Accept")
-        request.httpBody = jsonData*/
+        request.setValue("*/*", forHTTPHeaderField: "Accept")
+        request.setValue("XMLHttpRequest", forHTTPHeaderField: "X-Requested-With")
+        
+        
+        let dataTask = URLSession.shared.dataTask(with:request){
+            data,response,error in
+            guard let data = data, let response = response as? HTTPURLResponse, error == nil else{
+                if let error = error{
+                    print(error)
+                }
+                return
+            }
+            
+            if response.statusCode == 200{
+                let decoder = JSONDecoder()
+                do{
+                    let posts = try decoder.decode([newCase].self,from: data)
+                    for post in posts{
+                        print(post.id, post.name)
+                    }
+                    self.casos = posts
+                    
+                }catch{
+                    print("HE MUERTO")
+                }
+            }else{
+                print("RESPUESTA MALA:\(response.statusCode)")
+            }
+            
+            
+            DispatchQueue.main.async{
+                self.tableView.reloadData()
+            }
+            
+        }.resume()
+        
+        
     }
 
     // MARK: - Table view data source
@@ -61,8 +95,8 @@ class CasosTableViewController: UITableViewController {
                     return
             }
             
-            let n = newCase(nombre:caseName, estado:false, usuario:"1")
-            self.casos.append(n)
+            //let n = newCase(nombre:caseName, estado:false, usuario:"1")
+           // self.casos.append(n)
             //Aqui se hace lo de guardar en la BBDD creo
             
            /* let url = URL(string:"https://lps.tabalu.es/api/auth/projects")
@@ -136,8 +170,8 @@ class CasosTableViewController: UITableViewController {
             }
             do{
                 
-                
                 //TODO
+                
                 
             }
             catch {
@@ -153,10 +187,12 @@ class CasosTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CasoTableViewCell", for: indexPath) as! CasoTableViewCell
-        cell.nombreCasoLbl.text = casos[indexPath.row].nombre
+        cell.nombreCasoLbl.text = casos[indexPath.row].name
         
-        if(casos[indexPath.row].estado){
+        if(casos[indexPath.row].state == 1){
             cell.estadoCasoImg.image = UIImage(named:"check")
+        }else{
+            cell.estadoCasoImg.image = UIImage(named:"progress")
         }
     
         return cell
@@ -217,7 +253,12 @@ class CasosTableViewController: UITableViewController {
             
             let selectedRow = tableView.indexPath(for: sender as! CasoTableViewCell)?.row
             let viewDestiny = segue.destination as! CristalesTableViewController
-            viewDestiny.nombre = casos[selectedRow!].nombre
+            viewDestiny.nombre = casos[selectedRow!].name
+        }else{
+            let viewDestiny = segue.destination as! InicioViewController
+            viewDestiny.email.text = ""
+            viewDestiny.passwordUsuario.text = ""
+            viewDestiny.no = true
         }
 
     }
