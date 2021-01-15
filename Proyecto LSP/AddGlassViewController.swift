@@ -156,21 +156,17 @@ class AddGlassViewController: UIViewController{
             tipoConsulta = "Manual"
         #endif
         
-        let alerta = UIAlertController(title: "¿Quieres guardar este cristal?", message: "", preferredStyle: .alert)
+        let alerta = UIAlertController(title: "¿Quieres guardar este cristal?", message: "Vas a crear un cristal del tipo: \n\(attClase)", preferredStyle: .alert)
         
         let okAction = UIAlertAction(title: "Guardar", style: .default, handler:{ action in
                 self.guardarGlass()
         })
         
+        let cancelAction = UIAlertAction(title: "Cancelar", style: .destructive)
         
-        
-        let cancelAction = UIAlertAction(title: "Cancelar", style: .destructive, handler:{ action in
-            self.performSegue    (withIdentifier: "cancelar", sender: self)
-        })
         alerta.addAction(okAction)
         alerta.addAction(cancelAction)
         present(alerta,animated: true)
-        
         
     }
     
@@ -223,10 +219,9 @@ class AddGlassViewController: UIViewController{
         
     }
     
-    
     @IBAction func cancelar(_ sender: Any) {
         
-        performSegue    (withIdentifier: "cancelar", sender: self)
+        performSegue(withIdentifier: "cancelar", sender: self)
         
     }
     
@@ -246,10 +241,9 @@ class AddGlassViewController: UIViewController{
         
     }
     
-    
     func algoritmo() -> String{
+        
         var cristal:String = ""
-       
         let aluminio = (labelAl.text! as NSString).floatValue
         let bario = (labelBa.text! as NSString).floatValue
         let magnesio = (labelMg.text! as NSString).floatValue
@@ -297,6 +291,12 @@ class AddGlassViewController: UIViewController{
         return cristal
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "cancelar"){
+            let viewDestino = segue.destination as! CristalesTableViewController
+            viewDestino.fetchData()
+        }
+    }
 }
 
 extension AddGlassViewController: UIPickerViewDelegate, UIPickerViewDataSource{

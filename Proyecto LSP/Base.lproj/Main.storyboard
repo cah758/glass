@@ -221,8 +221,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="64.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre del caso" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eGy-AX-lY0">
-                                            <rect key="frame" x="16" y="11" width="130" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Nombre del caso" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eGy-AX-lY0">
+                                            <rect key="frame" x="16" y="11" width="175" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -277,7 +277,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="60d-76-Xue" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="H6a-ea-G4y" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="681" y="-90"/>
+            <point key="canvasLocation" x="680.79999999999995" y="-90.404797601199405"/>
         </scene>
         <!--Datos Cristal View Controller-->
         <scene sceneID="QaC-gT-cCv">
@@ -287,10 +287,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="check" translatesAutoresizingMaskIntoConstraints="NO" id="kXu-Dd-cee">
-                                <rect key="frame" x="110" y="130" width="155" height="155"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cristal placeholder" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D26-Z7-29c">
+                                <rect key="frame" x="31" y="85" width="313" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0,00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rl5-jP-vce">
                                 <rect key="frame" x="59" y="412" width="35" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -346,13 +349,10 @@
                                 <rect key="frame" x="157" y="344" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cristal placeholder" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D26-Z7-29c">
-                                <rect key="frame" x="115" y="84" width="144" height="21"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="check" translatesAutoresizingMaskIntoConstraints="NO" id="kXu-Dd-cee">
+                                <rect key="frame" x="110" y="122" width="155" height="155"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="dNG-MV-gH6"/>
@@ -394,8 +394,8 @@
                                                 <constraint firstAttribute="height" constant="44" id="chW-qI-bTx"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tipo de cristal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FrW-9T-B39">
-                                            <rect key="frame" x="84" y="17" width="108" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Tipo de cristal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FrW-9T-B39">
+                                            <rect key="frame" x="84" y="17" width="203" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -405,7 +405,6 @@
                                         <constraint firstItem="WfV-d9-Ipq" firstAttribute="leading" secondItem="177-nj-GdK" secondAttribute="leading" constant="16" id="LDK-SV-W2B"/>
                                         <constraint firstItem="WfV-d9-Ipq" firstAttribute="top" secondItem="177-nj-GdK" secondAttribute="top" constant="5" id="NsN-yL-haJ"/>
                                         <constraint firstItem="FrW-9T-B39" firstAttribute="leading" secondItem="WfV-d9-Ipq" secondAttribute="trailing" constant="24" id="cjV-ri-Hun"/>
-                                        <constraint firstAttribute="trailing" secondItem="FrW-9T-B39" secondAttribute="trailing" constant="183" id="gxJ-TL-Q05"/>
                                         <constraint firstItem="FrW-9T-B39" firstAttribute="top" secondItem="177-nj-GdK" secondAttribute="top" constant="17" id="pwf-1N-M9Z"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -433,7 +432,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MYv-7x-KJA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1790" y="-90"/>
+            <point key="canvasLocation" x="1789.5999999999999" y="-90.404797601199405"/>
         </scene>
         <!--Add Glass View Controller-->
         <scene sceneID="JZZ-dH-kQV">
@@ -620,7 +619,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fLO-N3-Doe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2719" y="-4"/>
+            <point key="canvasLocation" x="2730" y="313"/>
         </scene>
         <!--Item-->
         <scene sceneID="o1h-BH-YAe">

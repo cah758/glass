@@ -50,35 +50,30 @@ class CasosTableViewController: UITableViewController {
         
         
         let dataTask = URLSession.shared.dataTask(with:request){
-            data,response,error in
-            guard let data = data, let response = response as? HTTPURLResponse, error == nil else{
-                if let error = error{
-                    print(error)
-                }
-                return
-            }
-            
-            if response.statusCode == 200{
-                let decoder = JSONDecoder()
-                do{
-                    let posts = try decoder.decode([newCase].self,from: data)
-                    for post in posts{
-                        print(post.id, post.name)
+                data,response,error in
+                guard let data = data, let response = response as? HTTPURLResponse, error == nil else{
+                    if let error = error{
+                        print(error)
                     }
-                    self.casos = posts
-                    
-                }catch{
-                    print("HE MUERTO")
+                    return
                 }
-            }else{
-                print("RESPUESTA MALA:\(response.statusCode)")
-            }
             
+                if response.statusCode == 200{
+                    let decoder = JSONDecoder()
+                    do{
+                        let posts = try decoder.decode([newCase].self,from: data)
+                        self.casos = posts
+                        
+                    }catch{
+                        print("HE MUERTO")
+                    }
+                }else{
+                    print("RESPUESTA MALA:\(response.statusCode)")
+                }
             
-            DispatchQueue.main.async{
-                self.tableView.reloadData()
-            }
-            
+                DispatchQueue.main.async{
+                    self.tableView.reloadData()
+                }
             }.resume()
         
     }
@@ -148,7 +143,6 @@ class CasosTableViewController: UITableViewController {
             
             dataTask.resume()
             
-            
         }
         
         let cancelar = UIAlertAction(title:"Cancelar", style: .cancel)
@@ -178,9 +172,7 @@ class CasosTableViewController: UITableViewController {
                 print(error);return
             }
             do{
-                
                 //TODO
-                
                 
             }
             catch {
@@ -190,7 +182,7 @@ class CasosTableViewController: UITableViewController {
 
        dataTask.resume()
         
-        performSegue	(withIdentifier: "cerrarSesion", sender: self)
+        performSegue(withIdentifier: "cerrarSesion", sender: self)
         
     }
     
@@ -205,7 +197,6 @@ class CasosTableViewController: UITableViewController {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("*/*", forHTTPHeaderField: "Accept")
         request.setValue("XMLHttpRequest", forHTTPHeaderField: "X-Requested-With")
-        
         
         let dataTask = URLSession.shared.dataTask(with:request){
             data,response,error in
@@ -264,8 +255,6 @@ class CasosTableViewController: UITableViewController {
             self.deleteCaso(id:self.casos[indexPath.row].id)
             self.casos.remove(at:indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-           
-            
         })
         let cancelar = UIAlertAction(title:"Cancelar", style: .cancel)
         alert.addAction(aceptar)
@@ -279,11 +268,26 @@ class CasosTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView:UITableView, leadingSwipeActionsConfigurationForRowAt indexPath:IndexPath) -> UISwipeActionsConfiguration?{
+        let estado = casos[indexPath.row].state
+        var ti = ""
+        if(estado == 0){
+            ti = "Completar"
+        }else{
+            ti = "Reabrir"
+        }
+        
         return UISwipeActionsConfiguration(actions: [
-            UIContextualAction(style:.normal,title:"Completar"){(action,swipeButtonView,completion) in
+            UIContextualAction(style:.normal,title:ti){(action,swipeButtonView,completion) in
+                let alerta = UIAlertController(title: "¿Seguro que quieres actualizar el caso?", message: "", preferredStyle: .alert)
+                let si = UIAlertAction(title: "Si", style: .default, handler: {
+                    action in
+                    self.updateCaso(row:indexPath.row)
+                })
+                let no = UIAlertAction(title: "No", style: .cancel)
+                alerta.addAction(si)
+                alerta.addAction(no)
+                self.present(alerta, animated: true)
                 
-                //Poner alerta de cosa de aceptar y hacer el reabrir caso
-                self.updateCaso(row:indexPath.row)
             }])
     }
     

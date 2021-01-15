@@ -38,11 +38,7 @@ class RegistroViewController: UIViewController {
         super.viewDidLoad()
         let name = UserDefaults.standard.string(forKey: "token") ?? ""
         print(name)
-
-        
-        // Do any additional setup after loading the view.
     }
-    
 
     @IBAction func registrarse(_ sender: Any) {
         
@@ -61,7 +57,7 @@ class RegistroViewController: UIViewController {
             present(alert,animated:true)
         }else{
             guard let jsonData = try? JSONEncoder().encode(uploadDataModel) else{
-                print("nnioagiongaweriongewion")
+                print("Error al codificar los datos.")
                 return
             }
         
@@ -71,8 +67,6 @@ class RegistroViewController: UIViewController {
             //request.setValue("XMLHttpRequest", forHTTPHeaderField:"X-Requested-With")
             request.setValue("application/json", forHTTPHeaderField:"Accept")
             request.httpBody = jsonData
-            
-            print(uploadDataModel.password)
             
             let dataTask = URLSession.shared.dataTask(with:request){
                 data,response,error in
