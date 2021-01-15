@@ -14,6 +14,8 @@ class CasoTableViewCell: UITableViewCell {
     @IBOutlet weak var nombreCasoLbl: UILabel!
     
     @IBOutlet weak var estadoCasoImg: UIImageView!
+
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -42,7 +42,6 @@
                                         </state>
                                         <connections>
                                             <action selector="iniciarSesion:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Cw1-fn-d5i"/>
-                                            <segue destination="HCv-w8-bId" kind="show" identifier="unwindToInicio" id="cBM-sI-XZE"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="yY3-0f-fRj">
@@ -96,6 +95,7 @@
                         <outlet property="passwordUsuario" destination="ie4-8X-gGC" id="JNn-2d-vkD"/>
                         <outlet property="recordarPassBtn" destination="7vY-h8-IPW" id="d67-Z9-xpT"/>
                         <outlet property="registroBtn" destination="n5k-Wz-gd6" id="Rdz-Ga-U0v"/>
+                        <segue destination="HCv-w8-bId" kind="show" identifier="iniciarSesion" id="YMT-a6-dWh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -229,6 +229,7 @@
                                         </label>
                                         <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="progress" translatesAutoresizingMaskIntoConstraints="NO" id="POj-NM-fAU">
                                             <rect key="frame" x="315" y="11" width="44" height="44"/>
+                                            <gestureRecognizers/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="44" id="UQL-d7-MNV"/>
                                                 <constraint firstAttribute="height" constant="44" id="rHn-GO-pwI"/>
@@ -290,13 +291,6 @@
                                 <rect key="frame" x="110" y="130" width="155" height="155"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cristal placeholder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D26-Z7-29c">
-                                <rect key="frame" x="115" y="88" width="144" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0,00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rl5-jP-vce">
                                 <rect key="frame" x="59" y="412" width="35" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -313,6 +307,13 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0,00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ILk-V8-2Pp">
                                 <rect key="frame" x="230" y="520" width="35" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0,00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3vp-0I-n6N">
+                                <rect key="frame" x="272" y="412" width="54" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -345,8 +346,8 @@
                                 <rect key="frame" x="157" y="344" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0,00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3vp-0I-n6N">
-                                <rect key="frame" x="272" y="412" width="54" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cristal placeholder" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D26-Z7-29c">
+                                <rect key="frame" x="115" y="84" width="144" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -424,7 +425,7 @@
                     <navigationItem key="navigationItem" id="pkO-kR-gQp">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="p8a-It-sn1">
                             <connections>
-                                <segue destination="wBb-Mn-9g2" kind="show" id="7Ew-ch-r4u"/>
+                                <segue destination="RQM-75-fyS" kind="show" identifier="nuevoCristal" id="uzu-6K-blk"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -619,7 +620,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fLO-N3-Doe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2724" y="-90"/>
+            <point key="canvasLocation" x="2719" y="-4"/>
         </scene>
         <!--Item-->
         <scene sceneID="o1h-BH-YAe">
@@ -651,4 +652,7 @@
         <image name="progress" width="40" height="40"/>
         <image name="sodio" width="40" height="45"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="uzu-6K-blk"/>
+    </inferredMetricsTieBreakers>
 </document>

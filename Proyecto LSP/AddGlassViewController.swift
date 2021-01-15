@@ -41,6 +41,21 @@ class AddGlassViewController: UIViewController{
     
     @IBOutlet weak var naImg: UIImageView!
     
+    var attClase:String = ""
+    var tipoConsulta:String = ""
+    struct newCristal:Codable{
+        let aluminum:Double
+        let sodium:Double
+        let magnesium:Double
+        let barium:Double
+        let refractive_index:Double
+        let attribute_class:String
+        let type_consult:String
+        let project_id:Int
+    }
+    
+    var proyectoId:Int = -1
+    
     var cristales = ["Cristal de construcción flotado", "Cristal de construcción no flotado", "Cristal de vehículo flotado", "Cristal de vehículo no flotado", "Cristal de contenedor", "Cristal de cubertería", "Cristal de luz de coche"]
     
     var selected:String = ""
@@ -134,14 +149,80 @@ class AddGlassViewController: UIViewController{
         //Hace cosas con la BBDD
         
         #if LPSAlgoritmo
-            let tipoCristal = algoritmo()
-            //Cosas de la BBDD
+            attClase = algoritmo()
+            tipoConsulta = "Automatica"
         #else
-            //Otras cosas de la BBDD
+        attClase = selected
+            tipoConsulta = "Manual"
         #endif
         
-        performSegue    (withIdentifier: "cancelar", sender: self)
+        let alerta = UIAlertController(title: "¿Quieres guardar este cristal?", message: "", preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "Guardar", style: .default, handler:{ action in
+                self.guardarGlass()
+        })
+        
+        
+        
+        let cancelAction = UIAlertAction(title: "Cancelar", style: .destructive, handler:{ action in
+            self.performSegue    (withIdentifier: "cancelar", sender: self)
+        })
+        alerta.addAction(okAction)
+        alerta.addAction(cancelAction)
+        present(alerta,animated: true)
+        
+        
     }
+    
+    func guardarGlass(){
+        let a = Double(labelAl.text!)
+        let so = Double(labelNa.text!)
+        let mag = Double(labelMg.text!)
+        let bar = Double(labelBa.text!)
+        let indr = Double(labelIR.text!)
+        
+        //terminar de poner bien
+        let c = newCristal(aluminum: a!, sodium: so!, magnesium: mag!, barium: bar!, refractive_index: indr!, attribute_class: attClase, type_consult: tipoConsulta, project_id: proyectoId)
+        
+        let url = URL(string:"https://lps.tabalu.es/api/auth/createGlass")
+        
+        let token = UserDefaults.standard.object(forKey: "token") as! String
+        var request = URLRequest(url:url!)
+        request.httpMethod = "POST"
+        request.setValue("\(token)", forHTTPHeaderField: "Authorization")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.setValue("XMLHttpRequest", forHTTPHeaderField: "X-Requested-With")
+        
+        guard let jsonData = try? JSONEncoder().encode(c) else{
+            print("Error al codificar")
+            return
+        }
+        request.httpBody = jsonData
+        
+        
+        let dataTask = URLSession.shared.dataTask(with:request){
+            data,_,error in
+            if let error = error{
+                print(error);return
+            }
+            
+            let alert = UIAlertController(title: "Cristal creado correctamente", message: "", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Ok", style: .destructive)
+            alert.addAction(okAction)
+            self.present(alert,animated: true)
+            DispatchQueue.main.async {
+                
+            }
+            
+        }
+        
+        dataTask.resume()
+        
+        performSegue(withIdentifier: "cancelar", sender: self)
+        
+    }
+    
     
     @IBAction func cancelar(_ sender: Any) {
         

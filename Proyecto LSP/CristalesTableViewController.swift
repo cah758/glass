@@ -107,12 +107,11 @@ class CristalesTableViewController: UITableViewController {
         return cristales.count
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CristalTableViewCell", for: indexPath) as! CristalTableViewCell
 
         cell.cristalLbl.text = cristales[indexPath.row].attribute_class
-        
+        cell.imageView!.image = UIImage(named:cristales[indexPath.row].attribute_class)
         //If elses del att clase para las fotos
         
         return cell
@@ -225,6 +224,10 @@ class CristalesTableViewController: UITableViewController {
             viewDestiny.na = cristales[selectedRow!].sodium
             viewDestiny.iR = cristales[selectedRow!].refractive_index
             viewDestiny.mg = cristales[selectedRow!].magnesium
+        }else if(segue.identifier == "nuevoCristal"){
+            
+            let viewDestiny = segue.destination as! AddGlassViewController
+            viewDestiny.proyectoId = idCaso
         }
         
     }

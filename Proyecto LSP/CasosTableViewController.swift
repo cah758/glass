@@ -13,7 +13,7 @@ class CasosTableViewController: UITableViewController {
     struct newCase:Codable{
         let id:Int
         let name:String
-        let state:Int
+        var state:Int
         let user_id:Int
         let created_at:String
         let updated_at:String
@@ -21,8 +21,9 @@ class CasosTableViewController: UITableViewController {
     
     struct createCase:Codable{
         let name:String
-        let state:Int
+        var state:Int
     }
+    
     //Array para cargar los casos/proyectos. Esta puesto String temporalmente
     var casos:[newCase] = []
     
@@ -263,6 +264,7 @@ class CasosTableViewController: UITableViewController {
             self.deleteCaso(id:self.casos[indexPath.row].id)
             self.casos.remove(at:indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+           
             
         })
         let cancelar = UIAlertAction(title:"Cancelar", style: .cancel)
@@ -276,6 +278,67 @@ class CasosTableViewController: UITableViewController {
         return "Eliminar caso"
     }
 
+    override func tableView(_ tableView:UITableView, leadingSwipeActionsConfigurationForRowAt indexPath:IndexPath) -> UISwipeActionsConfiguration?{
+        return UISwipeActionsConfiguration(actions: [
+            UIContextualAction(style:.normal,title:"Completar"){(action,swipeButtonView,completion) in
+                
+                //Poner alerta de cosa de aceptar y hacer el reabrir caso
+                self.updateCaso(row:indexPath.row)
+            }])
+    }
+    
+    func updateCaso(row:Int){
+        
+        let url = URL(string:"https://lps.tabalu.es/api/auth/updateProject/\(casos[row].id)")
+        
+        let token = UserDefaults.standard.object(forKey: "token") as! String
+        var request = URLRequest(url:url!)
+        request.httpMethod = "POST"
+        request.setValue("\(token)", forHTTPHeaderField: "Authorization")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("*/*", forHTTPHeaderField: "Accept")
+        request.setValue("XMLHttpRequest", forHTTPHeaderField: "X-Requested-With")
+        
+        var n = createCase(name:casos[row].name, state:0)
+        if(casos[row].state == 0){
+            n.state = 1
+        }
+        
+        
+        guard let jsonData = try? JSONEncoder().encode(n) else{
+            print("Error al codificar")
+            return
+        }
+        request.httpBody = jsonData
+        
+        let dataTask = URLSession.shared.dataTask(with:request){
+            data,response,error in
+            guard let data = data, let response = response as? HTTPURLResponse, error == nil else{
+                if let error = error{
+                    print(error)
+                }
+                return
+            }
+            
+            if response.statusCode == 201{
+                let alert = UIAlertController(title: "Caso actualizado correctamente", message: "", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "Ok", style: .default)
+                alert.addAction(okAction)
+                self.present(alert,animated: true)
+                DispatchQueue.main.async {
+                    self.fetchData()
+                }
+            }else{
+                print("RESPUESTA MALA:\(response.statusCode)")
+            }
+            
+            
+            }.resume()
+        
+        
+    }
+    
+    
     /*
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
@@ -308,7 +371,7 @@ class CasosTableViewController: UITableViewController {
             let viewDestiny = segue.destination as! InicioViewController
             viewDestiny.email.text = ""
             viewDestiny.passwordUsuario.text = ""
-            viewDestiny.no = true
+            
         }
 
     }
