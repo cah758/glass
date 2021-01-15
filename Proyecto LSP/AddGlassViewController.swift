@@ -177,7 +177,6 @@ class AddGlassViewController: UIViewController{
         let bar = Double(labelBa.text!)
         let indr = Double(labelIR.text!)
         
-        //terminar de poner bien
         let c = newCristal(aluminum: a!, sodium: so!, magnesium: mag!, barium: bar!, refractive_index: indr!, attribute_class: attClase, type_consult: tipoConsulta, project_id: proyectoId)
         
         let url = URL(string:"https://lps.tabalu.es/api/auth/createGlass")
@@ -241,6 +240,7 @@ class AddGlassViewController: UIViewController{
         
     }
     
+    #if LPSAlgoritmo
     func algoritmo() -> String{
         
         var cristal:String = ""
@@ -290,6 +290,7 @@ class AddGlassViewController: UIViewController{
         
         return cristal
     }
+    #endif
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "cancelar"){
