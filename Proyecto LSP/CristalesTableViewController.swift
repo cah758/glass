@@ -27,6 +27,11 @@ class CristalesTableViewController: UITableViewController {
     var cristales:[cristal] = []
     var idCaso:Int = 0
     var nombre:String = ""
+    var abierto:Bool = true
+    
+    
+    @IBOutlet var nuevo: UIBarButtonItem!
+    
     
     struct caso:Codable{
         let id:Int
@@ -38,7 +43,9 @@ class CristalesTableViewController: UITableViewController {
         super.viewDidLoad()
 
         self.title = nombre
-        
+        if(!abierto){
+            nuevo.isEnabled = false
+        }
         fetchData()
         
     }
@@ -57,7 +64,7 @@ class CristalesTableViewController: UITableViewController {
         request.setValue("XMLHttpRequest", forHTTPHeaderField: "X-Requested-With")
         
         
-        let dataTask = URLSession.shared.dataTask(with:request){
+        URLSession.shared.dataTask(with:request){
             data,response,error in
             guard let data = data, let response = response as? HTTPURLResponse, error == nil else{
                 if let error = error{
@@ -131,9 +138,9 @@ class CristalesTableViewController: UITableViewController {
         request.setValue("XMLHttpRequest", forHTTPHeaderField: "X-Requested-With")
         
         
-        let dataTask = URLSession.shared.dataTask(with:request){
+        URLSession.shared.dataTask(with:request){
             data,response,error in
-            guard let data = data, let response = response as? HTTPURLResponse, error == nil else{
+            guard let _ = data, let response = response as? HTTPURLResponse, error == nil else{
                 if let error = error{
                     print(error)
                 }

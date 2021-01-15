@@ -49,7 +49,7 @@ class CasosTableViewController: UITableViewController {
         request.setValue("XMLHttpRequest", forHTTPHeaderField: "X-Requested-With")
         
         
-        let dataTask = URLSession.shared.dataTask(with:request){
+        URLSession.shared.dataTask(with:request){
                 data,response,error in
                 guard let data = data, let response = response as? HTTPURLResponse, error == nil else{
                     if let error = error{
@@ -171,13 +171,6 @@ class CasosTableViewController: UITableViewController {
             if let error = error{
                 print(error);return
             }
-            do{
-                //TODO
-                
-            }
-            catch {
-                print("Error al cerrar sesion")
-            }
         }
 
        dataTask.resume()
@@ -198,9 +191,9 @@ class CasosTableViewController: UITableViewController {
         request.setValue("*/*", forHTTPHeaderField: "Accept")
         request.setValue("XMLHttpRequest", forHTTPHeaderField: "X-Requested-With")
         
-        let dataTask = URLSession.shared.dataTask(with:request){
+        URLSession.shared.dataTask(with:request){
             data,response,error in
-            guard let data = data, let response = response as? HTTPURLResponse, error == nil else{
+            guard let _ = data, let response = response as? HTTPURLResponse, error == nil else{
                 if let error = error{
                     print(error)
                 }
@@ -315,9 +308,9 @@ class CasosTableViewController: UITableViewController {
         }
         request.httpBody = jsonData
         
-        let dataTask = URLSession.shared.dataTask(with:request){
+        URLSession.shared.dataTask(with:request){
             data,response,error in
-            guard let data = data, let response = response as? HTTPURLResponse, error == nil else{
+            guard let _ = data, let response = response as? HTTPURLResponse, error == nil else{
                 if let error = error{
                     print(error)
                 }
@@ -371,6 +364,11 @@ class CasosTableViewController: UITableViewController {
             let viewDestiny = segue.destination as! CristalesTableViewController
             viewDestiny.nombre = casos[selectedRow!].name
             viewDestiny.idCaso = casos[selectedRow!].id
+            if casos[selectedRow!].state == 0{
+                viewDestiny.abierto = true
+            }else{
+                viewDestiny.abierto = false
+            }
         }else{
             let viewDestiny = segue.destination as! InicioViewController
             viewDestiny.email.text = ""
