@@ -85,7 +85,8 @@ class InicioViewController: UIViewController {
                 DispatchQueue.main.async {
                     if (((response?.statusCode)! >= 400 && (response?.statusCode)! < 500)){
                         let alerta = UIAlertController(title: "Error al iniciar sesión", message: "Introduce tus datos correctamente", preferredStyle: .alert)
-                        let okAction = UIAlertAction(title: "Continuar", style: .destructive)
+                        let okAction = UIAlertAction(title: "Continuar", style: .default)
+                        okAction.setValue(UIColor(named: "VerdeCorp"), forKey: "titleTextColor")
                         alerta.addAction(okAction)
                         self.present(alerta, animated: true)
                     }
@@ -96,6 +97,60 @@ class InicioViewController: UIViewController {
         dataTask.resume()
 
         
+    }
+    @IBAction func forgotPass(_ sender: UIButton) {
+        let alerta = UIAlertController(title: "Recordar contraseña", message: "", preferredStyle: .alert)
+        
+        alerta.addTextField { (inputTextField : UITextField) -> Void in
+            inputTextField.placeholder = "Correo electrónico"
+        }
+        
+        let okAction = UIAlertAction(title: "Continuar", style: .default) { _ in
+            let url = URL(string:"https://lps.tabalu.es/api/auth/remember/\(alerta.textFields?.first?.text ?? "")")
+            
+            var request  = URLRequest(url:url!)
+            request.httpMethod = "POST"
+            
+            let dataTask = URLSession.shared.dataTask(with:request){
+                data,response,error in
+                if let error = error{
+                    print(error);return
+                }
+                let response = response as? HTTPURLResponse
+                
+                if(response?.statusCode == 200) {
+                    self.confirmEmail()
+                    
+                } else {
+                    self.errorConfirmEmail()
+                }
+            }
+            dataTask.resume()
+            
+        }
+        let cancelAction = UIAlertAction(title: "Cancelar", style: .destructive)
+        
+        okAction.setValue(UIColor(named: "VerdeCorp"), forKey: "titleTextColor")
+        
+        alerta.addAction(cancelAction)
+        alerta.addAction(okAction)
+        self.present(alerta, animated: true)
+    }
+    
+    func confirmEmail() {
+        let alerta2 = UIAlertController(title: "Correo enviado", message: "Compruebe su bandeja de entrada", preferredStyle: .alert)
+        let okAction2 = UIAlertAction(title: "OK", style: .default)
+        okAction2.setValue(UIColor(named: "VerdeCorp"), forKey: "titleTextColor")
+        alerta2.addAction(okAction2)
+        self.present(alerta2, animated: true)
+    }
+    
+    func errorConfirmEmail() {
+        let alerta2 = UIAlertController(title: "Correo inexistente", message: "Pruebe a darse de alta", preferredStyle: .alert)
+        let okAction2 = UIAlertAction(title: "OK", style: .default)
+        okAction2.setValue(UIColor(named: "VerdeCorp"), forKey: "titleTextColor")
+        alerta2.addAction(okAction2)
+        self.present(alerta2, animated: true)
     }
     
     @IBAction func unwind(_ seg:UIStoryboardSegue){

@@ -57,11 +57,13 @@ class RegistroViewController: UIViewController {
         if(uploadDataModel.password != confirmarPWTF.text){
             let alert = UIAlertController(title:"Error", message:"Las contraseñas deben coincidir.", preferredStyle: .alert)
             let okAction = UIAlertAction(title:"Ok", style:.default)
+            okAction.setValue(UIColor(named: "VerdeCorp"), forKey: "titleTextColor")
             alert.addAction(okAction)
             present(alert,animated:true)
         }else if(uploadDataModel.name.isEmpty || uploadDataModel.password.isEmpty || uploadDataModel.email.isEmpty || uploadDataModel.collegiate.isEmpty){
             let alert = UIAlertController(title:"Error", message:"No puede haber campos vacíos.", preferredStyle: .alert)
             let okAction = UIAlertAction(title:"Ok", style:.default)
+            okAction.setValue(UIColor(named: "VerdeCorp"), forKey: "titleTextColor")
             alert.addAction(okAction)
             present(alert,animated:true)
         } else {
@@ -90,10 +92,11 @@ class RegistroViewController: UIViewController {
                         
                     
                     let alert = UIAlertController(title:"Usuario creado correctamente",message:"", preferredStyle:.alert)
-                        let okAction = UIAlertAction(title:"Ok", style: .destructive){
+                        let okAction = UIAlertAction(title:"Ok", style: .default){
                             alertAction in
                             self.performSegue(withIdentifier: "registrado", sender: self)
                         }
+                        okAction.setValue(UIColor(named: "VerdeCorp"), forKey: "titleTextColor")
                     alert.addAction(okAction)
                     self.present(alert,animated:true)
                     }
@@ -101,7 +104,8 @@ class RegistroViewController: UIViewController {
                 }else{
                     DispatchQueue.main.async {
                             let alerta = UIAlertController(title: "Error al crear la cuenta", message: "Los datos introducidos no son válidos.", preferredStyle: .alert)
-                            let okAction = UIAlertAction(title: "Continuar", style: .destructive)
+                            let okAction = UIAlertAction(title: "Continuar", style: .default)
+                        okAction.setValue(UIColor(named: "VerdeCorp"), forKey: "titleTextColor")
                             alerta.addAction(okAction)
                             self.present(alerta, animated: true)
                         }

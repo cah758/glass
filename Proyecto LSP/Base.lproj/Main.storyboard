@@ -55,6 +55,9 @@
                                         <state key="normal" title="Recordar contraseña">
                                             <color key="titleColor" name="Color"/>
                                         </state>
+                                        <connections>
+                                            <action selector="forgotPass:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jqI-X3-Jfa"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n5k-Wz-gd6">
                                         <rect key="frame" x="0.0" y="182" width="235" height="29"/>
