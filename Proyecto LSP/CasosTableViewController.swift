@@ -63,7 +63,7 @@ class CasosTableViewController: UITableViewController {
                     do{
                         let posts = try decoder.decode([newCase].self,from: data)
                         self.casos = posts
-                        
+                        print(self.casos.first?.created_at ?? "")
                     }catch{
                         print("HE MUERTO")
                     }
@@ -221,7 +221,7 @@ class CasosTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CasoTableViewCell", for: indexPath) as! CasoTableViewCell
         cell.nombreCasoLbl.text = casos[indexPath.row].name
-        
+        cell.fechaDelCasoLbl.text = String(casos[indexPath.row].created_at.prefix(10))
         if(casos[indexPath.row].state == 1){
             cell.estadoCasoImg.image = UIImage(named:"check")
         }else{
