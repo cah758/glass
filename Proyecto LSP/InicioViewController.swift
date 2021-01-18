@@ -34,14 +34,9 @@ class InicioViewController: UIViewController {
         
         // Create a gradient layer.
         let gradientLayer = CAGradientLayer()
-        // Set the size of the layer to be equal to size of the display.
         gradientLayer.frame = view.bounds
-        // Set an array of Core Graphics colors (.cgColor) to create the gradient.
-        // This example uses a Color Literal and a UIColor from RGB values.
         gradientLayer.colors = [UIColor.white.cgColor, UIColor(named: "VerdeCorp")!.cgColor]
-        // Rasterize this static layer to improve app performance.
         gradientLayer.shouldRasterize = true
-        // Apply the gradient to the backgroundGradientView.
         gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.5)
         gradientLayer.endPoint = CGPoint(x: 1, y: 1 )
         view.layer.insertSublayer(gradientLayer, at: 0)
@@ -89,7 +84,7 @@ class InicioViewController: UIViewController {
             catch {
                 DispatchQueue.main.async {
                     if (((response?.statusCode)! >= 400 && (response?.statusCode)! < 500)){
-                        let alerta = UIAlertController(title: "Error al iniciar sesión,", message: "Introduce tus datos correctamente", preferredStyle: .alert)
+                        let alerta = UIAlertController(title: "Error al iniciar sesión", message: "Introduce tus datos correctamente", preferredStyle: .alert)
                         let okAction = UIAlertAction(title: "Continuar", style: .destructive)
                         alerta.addAction(okAction)
                         self.present(alerta, animated: true)
@@ -110,11 +105,11 @@ class InicioViewController: UIViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    //override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         
-    }
+   // }
     
 
 }

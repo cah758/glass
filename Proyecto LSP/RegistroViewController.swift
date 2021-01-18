@@ -31,13 +31,17 @@ class RegistroViewController: UIViewController {
     
     @IBOutlet weak var registrarseBtn: UIButton!
     
-    @IBOutlet weak var cancelarBtn: UIButton!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let name = UserDefaults.standard.string(forKey: "token") ?? ""
-        print(name)
+        // Create a gradient layer.
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = view.bounds
+        gradientLayer.colors = [UIColor.white.cgColor, UIColor(named: "VerdeCorp")!.cgColor]
+        gradientLayer.shouldRasterize = true
+        gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 1 )
+        view.layer.insertSublayer(gradientLayer, at: 0)
     }
 
     @IBAction func registrarse(_ sender: Any) {
@@ -51,11 +55,16 @@ class RegistroViewController: UIViewController {
         }
         
         if(uploadDataModel.password != confirmarPWTF.text){
-            let alert = UIAlertController(title:"Error", message:"Las contraseñas deben coincidir", preferredStyle: .alert)
+            let alert = UIAlertController(title:"Error", message:"Las contraseñas deben coincidir.", preferredStyle: .alert)
             let okAction = UIAlertAction(title:"Ok", style:.default)
             alert.addAction(okAction)
             present(alert,animated:true)
-        }else{
+        }else if(uploadDataModel.name.isEmpty || uploadDataModel.password.isEmpty || uploadDataModel.email.isEmpty || uploadDataModel.collegiate.isEmpty){
+            let alert = UIAlertController(title:"Error", message:"No puede haber campos vacíos.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title:"Ok", style:.default)
+            alert.addAction(okAction)
+            present(alert,animated:true)
+        } else {
             guard let jsonData = try? JSONEncoder().encode(uploadDataModel) else{
                 print("Error al codificar los datos.")
                 return
@@ -64,7 +73,7 @@ class RegistroViewController: UIViewController {
             var request  = URLRequest(url:url!)
             request.httpMethod = "POST"
             request.setValue("application/json", forHTTPHeaderField:"Content-Type")
-            //request.setValue("XMLHttpRequest", forHTTPHeaderField:"X-Requested-With")
+            request.setValue("XMLHttpRequest", forHTTPHeaderField:"X-Requested-With")
             request.setValue("application/json", forHTTPHeaderField:"Accept")
             request.httpBody = jsonData
             
@@ -90,6 +99,12 @@ class RegistroViewController: UIViewController {
                     }
                     
                 }else{
+                    DispatchQueue.main.async {
+                            let alerta = UIAlertController(title: "Error al crear la cuenta", message: "Los datos introducidos no son válidos.", preferredStyle: .alert)
+                            let okAction = UIAlertAction(title: "Continuar", style: .destructive)
+                            alerta.addAction(okAction)
+                            self.present(alerta, animated: true)
+                        }
                     print("Moricion")
                     return
                 }
@@ -99,6 +114,9 @@ class RegistroViewController: UIViewController {
         }
     }
     
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
     /*
     // MARK: - Navigation
 
