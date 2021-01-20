@@ -35,7 +35,7 @@ class InicioViewController: UIViewController {
         // Create a gradient layer.
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = view.bounds
-        gradientLayer.colors = [UIColor.white.cgColor, UIColor(named: "VerdeCorp")!.cgColor]
+        gradientLayer.colors = [UIColor.white.cgColor, UIColor(named: "AzulCorp")!.cgColor]
         gradientLayer.shouldRasterize = true
         gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.5)
         gradientLayer.endPoint = CGPoint(x: 1, y: 1 )
@@ -86,7 +86,7 @@ class InicioViewController: UIViewController {
                     if (((response?.statusCode)! >= 400 && (response?.statusCode)! < 500)){
                         let alerta = UIAlertController(title: "Error al iniciar sesión", message: "Introduce tus datos correctamente", preferredStyle: .alert)
                         let okAction = UIAlertAction(title: "Continuar", style: .default)
-                        okAction.setValue(UIColor(named: "VerdeCorp"), forKey: "titleTextColor")
+                        //okAction.setValue(UIColor(named: "VerdeCorp"), forKey: "titleTextColor")
                         alerta.addAction(okAction)
                         self.present(alerta, animated: true)
                     }
@@ -130,7 +130,7 @@ class InicioViewController: UIViewController {
         }
         let cancelAction = UIAlertAction(title: "Cancelar", style: .destructive)
         
-        okAction.setValue(UIColor(named: "VerdeCorp"), forKey: "titleTextColor")
+        //okAction.setValue(UIColor(named: "VerdeCorp"), forKey: "titleTextColor")
         
         alerta.addAction(cancelAction)
         alerta.addAction(okAction)
@@ -140,7 +140,7 @@ class InicioViewController: UIViewController {
     func confirmEmail() {
         let alerta2 = UIAlertController(title: "Correo enviado", message: "Compruebe su bandeja de entrada", preferredStyle: .alert)
         let okAction2 = UIAlertAction(title: "OK", style: .default)
-        okAction2.setValue(UIColor(named: "VerdeCorp"), forKey: "titleTextColor")
+        //okAction2.setValue(UIColor(named: "VerdeCorp"), forKey: "titleTextColor")
         alerta2.addAction(okAction2)
         self.present(alerta2, animated: true)
     }
@@ -148,7 +148,7 @@ class InicioViewController: UIViewController {
     func errorConfirmEmail() {
         let alerta2 = UIAlertController(title: "Correo inexistente", message: "Pruebe a darse de alta", preferredStyle: .alert)
         let okAction2 = UIAlertAction(title: "OK", style: .default)
-        okAction2.setValue(UIColor(named: "VerdeCorp"), forKey: "titleTextColor")
+        //okAction2.setValue(UIColor(named: "VerdeCorp"), forKey: "titleTextColor")
         alerta2.addAction(okAction2)
         self.present(alerta2, animated: true)
     }

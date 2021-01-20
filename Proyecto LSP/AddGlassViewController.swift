@@ -56,7 +56,9 @@ class AddGlassViewController: UIViewController{
     
     var proyectoId:Int = -1
     
-    var cristales = ["Cristal de construcción flotado", "Cristal de construcción no flotado", "Cristal de vehículo flotado", "Cristal de vehículo no flotado", "Cristal de contenedor", "Cristal de cubertería", "Cristal de luz de coche"]
+    let cristales = ["Cristal de construcción flotado", "Cristal de construcción no flotado", "Cristal de vehículo flotado", "Cristal de vehículo no flotado", "Cristal de contenedor", "Cristal de cubertería", "Cristal de luz de coche"]
+    
+    let pickerViewRows = 10_000
     
     var selected:String = ""
 
@@ -66,6 +68,8 @@ class AddGlassViewController: UIViewController{
         self.title = "Nuevo cristal"
         pickerView.delegate = self
         pickerView.dataSource = self
+        
+        pickerView.selectRow(pickerViewRows/2, inComponent: 0, animated: true)
         
         sliderIndRef.minimumValue = 1.5112
         sliderIndRef.maximumValue = 1.5339
@@ -79,7 +83,7 @@ class AddGlassViewController: UIViewController{
     }
     
     
-    @IBAction func didTapImageView(_ sender: UITapGestureRecognizer) {
+    @IBAction func didTapImageAl(_ sender: UITapGestureRecognizer) {
        
         alImg.isHighlighted = true
         baImg.isHighlighted = false
@@ -158,14 +162,14 @@ class AddGlassViewController: UIViewController{
         
         let alerta = UIAlertController(title: "¿Quieres guardar este cristal?", message: "Vas a crear un cristal del tipo: \n\(attClase)", preferredStyle: .alert)
         
+        let cancelAction = UIAlertAction(title: "Cancelar", style: .destructive)
+        
         let okAction = UIAlertAction(title: "Guardar", style: .default, handler:{ action in
                 self.guardarGlass()
         })
         
-        let cancelAction = UIAlertAction(title: "Cancelar", style: .destructive)
-        
-        alerta.addAction(okAction)
         alerta.addAction(cancelAction)
+        alerta.addAction(okAction)
         present(alerta,animated: true)
         
     }
@@ -203,7 +207,7 @@ class AddGlassViewController: UIViewController{
             }
             
             let alert = UIAlertController(title: "Cristal creado correctamente", message: "", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "Ok", style: .destructive)
+            let okAction = UIAlertAction(title: "Ok", style: .default)
             alert.addAction(okAction)
             self.present(alert,animated: true)
             DispatchQueue.main.async {
@@ -302,20 +306,27 @@ class AddGlassViewController: UIViewController{
 
 extension AddGlassViewController: UIPickerViewDelegate, UIPickerViewDataSource{
     
+    func valueForRow(row: Int) -> String {
+        // the rows repeat every `pickerViewData.count` items
+        return cristales[row % cristales.count]
+    }
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int{
         return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
-        return cristales.count
+        //return cristales.count
+        return pickerViewRows
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component:Int) -> String?{
-        return cristales[row]
+        //return cristales[row]
+        return valueForRow(row: row)
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
-        self.selected = cristales[pickerView.selectedRow(inComponent: 0)]
+        self.selected = valueForRow(row: pickerView.selectedRow(inComponent: 0))
         print(selected)
     }
     

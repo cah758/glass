@@ -180,15 +180,15 @@ class CristalesTableViewController: UITableViewController {
         }
         
         let alert = UIAlertController(title: "¿Quieres eliminar este cristal?", message: "", preferredStyle: .alert)
-        let aceptar = UIAlertAction(title: "Eliminar", style: .destructive, handler: { _ in
+        let aceptar = UIAlertAction(title: "Eliminar", style: .default, handler: { _ in
             self.deleteCristal(id:self.cristales[indexPath.row].id)
             self.cristales.remove(at:indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             
         })
-        let cancelar = UIAlertAction(title:"Cancelar", style: .cancel)
-        alert.addAction(aceptar)
+        let cancelar = UIAlertAction(title:"Cancelar", style: .destructive)
         alert.addAction(cancelar)
+        alert.addAction(aceptar)
         present(alert, animated:true)
     }
     

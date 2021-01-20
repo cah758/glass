@@ -132,7 +132,7 @@ class CasosTableViewController: UITableViewController {
                 }
                     
                     let alert = UIAlertController(title: "Caso creado correctamente", message: "", preferredStyle: .alert)
-                    let okAction = UIAlertAction(title: "Ok", style: .destructive)
+                    let okAction = UIAlertAction(title: "Ok", style: .default)
                     alert.addAction(okAction)
                     self.present(alert,animated: true)
                     DispatchQueue.main.async {
@@ -244,14 +244,14 @@ class CasosTableViewController: UITableViewController {
         }
         
         let alert = UIAlertController(title: "¿Quieres eliminar este caso?", message: "", preferredStyle: .alert)
-        let aceptar = UIAlertAction(title: "Eliminar", style: .destructive, handler: { _ in
+        let aceptar = UIAlertAction(title: "Eliminar", style: .default, handler: { _ in
             self.deleteCaso(id:self.casos[indexPath.row].id)
             self.casos.remove(at:indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         })
-        let cancelar = UIAlertAction(title:"Cancelar", style: .cancel)
-        alert.addAction(aceptar)
+        let cancelar = UIAlertAction(title:"Cancelar", style: .destructive)
         alert.addAction(cancelar)
+        alert.addAction(aceptar)
         present(alert, animated:true)
         
     }
