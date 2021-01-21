@@ -117,12 +117,13 @@ class InicioViewController: UIViewController {
                     print(error);return
                 }
                 let response = response as? HTTPURLResponse
-                
-                if(response?.statusCode == 200) {
-                    self.confirmEmail()
-                    
-                } else {
-                    self.errorConfirmEmail()
+                DispatchQueue.main.async {
+                    if(response?.statusCode == 200) {
+                        self.confirmEmail()
+                        
+                    } else {
+                        self.errorConfirmEmail()
+                    }
                 }
             }
             dataTask.resume()
